@@ -329,6 +329,9 @@ function Home() {
             alt="Modern home with premium uPVC windows"
             width={1920}
             height={1280}
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" />

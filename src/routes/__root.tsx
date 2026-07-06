@@ -7,13 +7,18 @@ import {
   createRootRouteWithContext,
   useRouter,
 } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Suspense, lazy, type ReactNode } from "react";
 
-import { FloatingActions } from "@/components/common/FloatingActions";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
+
+const FloatingActions = lazy(async () => ({
+  default: (await import("@/components/common/FloatingActions")).FloatingActions,
+}));
+const Toaster = lazy(async () => ({
+  default: (await import("@/components/ui/sonner")).Toaster,
+}));
 
 function NotFoundComponent() {
   return (
@@ -168,8 +173,12 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
-      <FloatingActions />
-      <Toaster richColors closeButton position="top-center" />
+      <Suspense fallback={null}>
+        <FloatingActions />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Toaster richColors closeButton position="top-center" />
+      </Suspense>
     </QueryClientProvider>
   );
 }

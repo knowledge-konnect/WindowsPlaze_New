@@ -104,6 +104,9 @@ function AboutPage() {
           <img
             src={heroImg}
             alt="Windows Plaza manufacturing facility"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" />
@@ -152,6 +155,8 @@ function AboutPage() {
               <img
                 src={factoryImg}
                 alt="Manufacturing floor"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover aspect-4/3"
               />
             </motion.div>
@@ -297,6 +302,8 @@ function AboutPage() {
               <img
                 src={factoryImg}
                 alt="Factory production line"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover aspect-4/3"
               />
             </motion.div>
