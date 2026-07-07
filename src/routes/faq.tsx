@@ -1,5 +1,5 @@
 import { Button, Container, FAQAccordion, Section, SectionHeading } from "@/components";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
@@ -151,11 +151,19 @@ function FAQPage() {
               Still have a question? We'd love to help.
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" variant="accent">
-                Get Free Quote <ArrowRight />
+              <Button size="lg" variant="secondary" asChild>
+                <Link to="/contact">
+                  Get Free Quote <ArrowRight />
+                </Link>
               </Button>
-              <Button size="lg" variant="whatsapp">
-                <MessageCircle /> WhatsApp Us
+              <Button size="lg" variant="whatsapp" asChild>
+                <a
+                  href="https://wa.me/918341166268?text=Hi%2C%20I%20have%20a%20question%20about%20your%20products."
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MessageCircle /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>

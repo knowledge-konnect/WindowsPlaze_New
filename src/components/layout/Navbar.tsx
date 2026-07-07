@@ -59,7 +59,7 @@ export function Navbar() {
               key={link.to}
               to={link.to}
               activeOptions={{ exact: true }}
-              className="px-4 py-2 text-sm font-medium text-white/75 hover:text-white rounded-lg hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
+              className="px-4 py-2 text-sm font-medium text-white/75 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
               activeProps={{
                 className:
                   "px-4 py-2 text-sm font-semibold !text-primary bg-white rounded-lg border border-white shadow-[var(--shadow-soft)]",
@@ -77,7 +77,9 @@ export function Navbar() {
           >
             <Phone className="size-4" /> Call Now
           </a>
-          <Button size="sm">Get a Quote</Button>
+          <Button size="sm" asChild>
+            <Link to="/contact">Get a Quote</Link>
+          </Button>
         </div>
 
         <button
@@ -111,7 +113,7 @@ export function Navbar() {
                   to={link.to}
                   activeOptions={{ exact: true }}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-3 rounded-lg text-white/90 hover:bg-white/10 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
+                  className="px-3 py-3 rounded-lg text-white/90 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
                   activeProps={{
                     className:
                       "px-3 py-3 rounded-lg font-semibold !text-primary bg-white border border-white",
@@ -120,7 +122,11 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Button className="mt-3 w-full">Get a Quote</Button>
+              <Button className="mt-3 w-full" asChild>
+                <Link to="/contact" onClick={() => setOpen(false)}>
+                  Get a Quote
+                </Link>
+              </Button>
               <a
                 href="tel:+918341166268"
                 className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/50 bg-transparent px-3.5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"

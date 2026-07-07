@@ -7,9 +7,10 @@ import pvcDoorImg from "@/assets/product-pvc-door.jpg";
 import upvcDoorImg from "@/assets/product-upvc-door.jpg";
 import windowImg from "@/assets/product-upvc-window.jpg";
 import { Button, Container, Section, SectionHeading } from "@/components";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -220,15 +221,18 @@ const CATEGORIES: Category[] = [
 
 function ProductCardExtended({ product }: { product: Product }) {
   const waMsg = encodeURIComponent(`Hi, I'd like to enquire about your ${product.title}.`);
+  const topFeatures = product.features.slice(0, 3);
+  const topApplications = product.applications.slice(0, 3);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55 }}
-      className="group grid gap-0 md:grid-cols-5 bg-card rounded-xl border border-border overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-hover)] transition-shadow duration-300"
+      className="group h-full rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-hover)]"
     >
-      <div className="md:col-span-2 image-zoom aspect-4/3 md:aspect-auto bg-section">
+      <div className="image-zoom aspect-[4/3] bg-section">
         <img
           src={product.image}
           alt={product.title}
@@ -236,49 +240,41 @@ function ProductCardExtended({ product }: { product: Product }) {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="md:col-span-3 p-6 md:p-8 flex flex-col">
-        <h3 className="text-xl md:text-2xl font-semibold text-foreground">{product.title}</h3>
-        <p className="mt-2 text-muted-foreground leading-relaxed">{product.description}</p>
+      <div className="flex h-full flex-col p-5 md:p-6">
+        <h3 className="text-lg md:text-xl font-semibold text-foreground">{product.title}</h3>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
 
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
-              Features
-            </p>
-            <ul className="space-y-2">
-              {product.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-foreground/90">
-                  <Check className="size-4 text-primary mt-0.5 shrink-0" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
-              Applications
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {product.applications.map((a) => (
-                <span
-                  key={a}
-                  className="inline-flex items-center rounded-full bg-section border border-border px-3 py-1 text-xs font-medium text-foreground/80"
-                >
-                  {a}
-                </span>
-              ))}
-            </div>
-          </div>
+        <div className="mt-5">
+          <p className="mb-2 text-xs font-semibold tracking-widest uppercase text-accent">Features</p>
+          <ul className="space-y-1.5">
+            {topFeatures.map((f) => (
+              <li key={f} className="flex items-start gap-2 text-sm text-foreground/90">
+                <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="mt-6 pt-6 border-t border-border">
+        <div className="mt-5 flex flex-wrap gap-2">
+          {topApplications.map((a) => (
+            <span
+              key={a}
+              className="inline-flex items-center rounded-full border border-border bg-section px-2.5 py-1 text-xs font-medium text-foreground/80"
+            >
+              {a}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-5">
           <a
             href={`https://wa.me/918341166268?text=${waMsg}`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex"
+            className="inline-flex w-full"
           >
-            <Button variant="whatsapp">
+            <Button variant="whatsapp" className="w-full justify-center">
               <MessageCircle /> Enquire on WhatsApp
             </Button>
           </a>
@@ -289,6 +285,31 @@ function ProductCardExtended({ product }: { product: Product }) {
 }
 
 function ProductsPage() {
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0]?.slug ?? "");
+
+  useEffect(() => {
+    const sections = CATEGORIES.map((c) => document.getElementById(c.slug)).filter(
+      (el): el is HTMLElement => el != null,
+    );
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target?.id) {
+          setActiveCategory(visible.target.id);
+        }
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0.15, 0.3, 0.5] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* HERO */}
@@ -310,7 +331,10 @@ function ProductsPage() {
               <a
                 key={c.slug}
                 href={`#${c.slug}`}
-                className="inline-flex items-center rounded-full bg-background border border-border px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary hover:border-primary/30 transition-colors"
+                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activeCategory === c.slug
+                  ? "border-primary/40 bg-primary/10 text-primary"
+                  : "border-border bg-background text-foreground/80 hover:text-primary hover:border-primary/30"
+                  }`}
               >
                 {c.title}
               </a>
@@ -327,7 +351,7 @@ function ProductsPage() {
               title={cat.title}
               description={cat.intro}
             />
-            <div className="grid gap-6 md:gap-8">
+            <div className="grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3">
               {cat.products.map((p) => (
                 <ProductCardExtended key={p.title} product={p} />
               ))}
@@ -348,12 +372,20 @@ function ProductsPage() {
               24 hours.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" variant="accent">
-                Get Free Quote <ArrowRight />
+              <Button size="lg" variant="secondary" asChild>
+                <Link to="/contact">
+                  Get Free Quote <ArrowRight />
+                </Link>
               </Button>
-              <Button size="lg" variant="whatsapp">
-                <MessageCircle /> WhatsApp Us
-              </Button>
+              <a
+                href="https://wa.me/918341166268?text=Hi%2C%20I%20want%20a%20quote%20for%20your%20products."
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button size="lg" variant="whatsapp">
+                  <MessageCircle /> WhatsApp Us
+                </Button>
+              </a>
             </div>
           </div>
         </Container>

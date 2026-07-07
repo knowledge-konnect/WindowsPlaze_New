@@ -8,7 +8,7 @@ import {
   SectionHeading,
   StatisticsCard,
 } from "@/components";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -319,11 +319,19 @@ function AboutPage() {
               Ready to see the difference eighteen years of craftsmanship makes?
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" variant="accent">
-                Get Free Quote <ArrowRight />
+              <Button size="lg" variant="secondary" asChild>
+                <Link to="/contact">
+                  Get Free Quote <ArrowRight />
+                </Link>
               </Button>
-              <Button size="lg" variant="whatsapp">
-                <MessageCircle /> WhatsApp Us
+              <Button size="lg" variant="whatsapp" asChild>
+                <a
+                  href="https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20uPVC%20products."
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MessageCircle /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>

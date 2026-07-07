@@ -74,6 +74,7 @@ function ContactPage() {
     handleSubmit,
     formState: { errors, isSubmitting },
     getValues,
+    reset,
   } = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
     mode: "onBlur",
@@ -82,16 +83,23 @@ function ContactPage() {
 
   const onSubmit = async (values: ContactValues) => {
     try {
-      // Simulate network — real submission would post to a server function
-      await new Promise((r) => setTimeout(r, 700));
+      const existingRaw = window.localStorage.getItem("wp_quote_enquiries");
+      const parsed: unknown = existingRaw ? JSON.parse(existingRaw) : [];
+      const existing = Array.isArray(parsed) ? parsed : [];
+      const entry = { ...values, submittedAt: new Date().toISOString() };
+
+      window.localStorage.setItem("wp_quote_enquiries", JSON.stringify([entry, ...existing]));
       setSubmitted(values);
-      toast.success("Enquiry received", {
-        description: `Thanks ${values.name.split(" ")[0]} — we'll be in touch within 24 hours.`,
+      reset();
+
+      toast.success("Quote form saved", {
+        description:
+          "Basic frontend form is active. Entries are saved on this device until backend is connected.",
       });
     } catch (err) {
       console.error(err);
-      toast.error("Something went wrong", {
-        description: "Please try again or reach us on WhatsApp.",
+      toast.error("Couldn't save form", {
+        description: "Please try again or use WhatsApp.",
       });
     }
   };
@@ -164,7 +172,7 @@ function ContactPage() {
                     Thanks, {submitted.name.split(" ")[0]}!
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    We've received your enquiry and will get back to you within 24 hours.
+                    Your details are saved locally. Backend submission will be connected next.
                   </p>
                 </div>
               ) : (

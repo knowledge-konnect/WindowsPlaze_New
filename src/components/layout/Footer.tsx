@@ -6,28 +6,28 @@ const COL_LINKS = [
   {
     title: "Products",
     links: [
-      { label: "uPVC Windows", to: "/products/windows" },
-      { label: "uPVC Doors", to: "/products/upvc-doors" },
-      { label: "PVC Doors", to: "/products/pvc-doors" },
-      { label: "Custom Solutions", to: "/products/custom" },
+      { label: "uPVC Windows", href: "/products#upvc-windows" },
+      { label: "uPVC Doors", href: "/products#upvc-doors" },
+      { label: "PVC Doors", href: "/products#pvc-doors" },
+      { label: "Custom Solutions", href: "/contact" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", to: "/about" },
-      { label: "Gallery", to: "/gallery" },
-      { label: "Testimonials", to: "/testimonials" },
-      { label: "Contact", to: "/contact" },
+      { label: "About", href: "/about" },
+      { label: "Gallery", href: "/projects" },
+      { label: "Testimonials", href: "/projects" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Brochure", to: "/brochure" },
-      { label: "FAQs", to: "/faq" },
-      { label: "Warranty", to: "/warranty" },
-      { label: "Installation", to: "/installation" },
+      { label: "Brochure", href: "/contact" },
+      { label: "FAQs", href: "/faq" },
+      { label: "Warranty", href: "/faq" },
+      { label: "Installation", href: "/faq" },
     ],
   },
 ];
@@ -55,19 +55,43 @@ export function Footer() {
             </p>
             <ul className="mt-6 space-y-3 text-sm text-white/82">
               <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" /> +91 9876543210
+                <Phone className="size-4 text-primary" />
+                <a href="tel:+919876543210" className="hover:text-white transition-colors">
+                  +91 9876543210
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" /> +91 8765432109
+                <Phone className="size-4 text-primary" />
+                <a href="tel:+918765432109" className="hover:text-white transition-colors">
+                  +91 8765432109
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" /> +91 8341166268
+                <Phone className="size-4 text-primary" />
+                <a href="tel:+918341166268" className="hover:text-white transition-colors">
+                  +91 8341166268
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="size-4 text-primary" /> hello@windowsplaza.in
+                <Mail className="size-4 text-primary" />
+                <a
+                  href="mailto:hello@windowsplaza.in"
+                  className="hover:text-white transition-colors"
+                >
+                  hello@windowsplaza.in
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="size-4 text-primary mt-0.5" /> Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162
+                <MapPin className="size-4 text-primary mt-0.5" />
+                <a
+                  href="https://maps.google.com/?q=Rajula+Tallavalasa+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam,
+                  Visakhapatnam, Andhra Pradesh - 531162
+                </a>
               </li>
             </ul>
           </div>
@@ -80,12 +104,9 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <Link
-                      to={l.to}
-                      className="text-sm text-white/80 hover:text-white transition-colors"
-                    >
+                    <a href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
                       {l.label}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

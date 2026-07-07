@@ -5,7 +5,7 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import g6 from "@/assets/gallery-6.jpg";
 import { Button, Container, GalleryCard, Section, SectionHeading } from "@/components";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
@@ -82,11 +82,19 @@ function ProjectsPage() {
               Your project could be next.
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Button size="lg" variant="accent">
-                Get Free Quote <ArrowRight />
+              <Button size="lg" variant="secondary" asChild>
+                <Link to="/contact">
+                  Get Free Quote <ArrowRight />
+                </Link>
               </Button>
-              <Button size="lg" variant="whatsapp">
-                <MessageCircle /> WhatsApp Us
+              <Button size="lg" variant="whatsapp" asChild>
+                <a
+                  href="https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <MessageCircle /> WhatsApp Us
+                </a>
               </Button>
             </div>
           </div>
