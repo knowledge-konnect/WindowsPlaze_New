@@ -1,11 +1,12 @@
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { A as Factory, E as House, K as ArrowRight, L as ClipboardCheck, P as Cog, T as Leaf, U as Award, V as CalendarDays, b as MessageCircle, f as ShieldCheck, j as Eye, k as Gem, l as Target, s as Users } from "../_libs/lucide-react.mjs";
+import { A as Eye, B as CalendarDays, G as ArrowRight, H as Award, I as ClipboardCheck, N as Cog, O as Gem, T as House, f as ShieldCheck, k as Factory, l as Target, s as Users, w as Leaf, y as MessageCircle } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
 import { t as gallery_3_default } from "./gallery-3-GSB_2Cl4.mjs";
 import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DenOCVQL.mjs";
-import { t as SectionHeading } from "./SectionHeading-D1zTYUQU.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/about-Brl4ouOW.js
+import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/about-BSg8wQVS.js
 var import_jsx_runtime = require_jsx_runtime();
 var STATS = [
 	{
@@ -68,7 +69,7 @@ var EXCELLENCE = [
 function AboutPage() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-			className: "relative overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20",
+			className: "relative overflow-hidden -mt-14 md:-mt-20 pt-14 md:pt-20 min-h-[calc(100svh-3.5rem)] md:min-h-0",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "absolute inset-0 -z-10",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -77,10 +78,10 @@ function AboutPage() {
 					fetchPriority: "high",
 					loading: "eager",
 					decoding: "async",
-					className: "h-full w-full object-cover"
+					className: "h-full w-full object-cover object-[62%_center] md:object-center"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" })]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, {
-				className: "relative py-20 md:py-28 lg:py-36",
+				className: "relative py-10 sm:py-12 md:py-28 lg:py-36",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
 						initial: {
@@ -108,7 +109,7 @@ function AboutPage() {
 							duration: .6,
 							delay: .05
 						},
-						className: "mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]",
+						className: "mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]",
 						children: "The dedicated uPVC windows and doors brand of SP Builders and Traders."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
@@ -124,7 +125,7 @@ function AboutPage() {
 							duration: .6,
 							delay: .15
 						},
-						className: "mt-6 max-w-2xl text-lg text-white/85 leading-relaxed",
+						className: "mt-5 sm:mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed",
 						children: "WINDOWS PLAZA is focused on delivering premium uPVC windows, uPVC doors and PVC doors for modern residential and commercial spaces with reliable quality and expert installation."
 					})
 				]
@@ -302,20 +303,30 @@ function AboutPage() {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
 			muted: true,
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "rounded-xl bg-primary text-primary-foreground p-10 md:p-14 text-center shadow-[var(--shadow-elevated)]",
+				className: "rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-14 text-center shadow-[var(--shadow-elevated)]",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto",
+					className: "text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto",
 					children: "Ready to see the difference eighteen years of craftsmanship makes?"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "mt-8 flex flex-wrap items-center justify-center gap-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 						size: "lg",
-						variant: "accent",
-						children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+						variant: "secondary",
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+							to: "/contact",
+							children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 						size: "lg",
 						variant: "whatsapp",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: "https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20uPVC%20products.",
+							target: "_blank",
+							rel: "noreferrer",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+						})
 					})]
 				})]
 			}) })

@@ -2,12 +2,12 @@ import { o as __toESM } from "../_runtime.mjs";
 import { n as useForm, r as require_react, t as a } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { A as Factory, C as Mail, I as Clock, R as CircleCheck, S as MapPin, _ as Phone, b as MessageCircle, m as Send, w as LoaderCircle } from "../_libs/lucide-react.mjs";
+import { C as LoaderCircle, F as Clock, L as CircleCheck, S as Mail, _ as Phone, k as Factory, m as Send, x as MapPin, y as MessageCircle } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
-import { t as SectionHeading } from "./SectionHeading-D1zTYUQU.mjs";
+import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { n as stringType, t as objectType } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/contact-B1B-viBk.js
+//#region node_modules/.nitro/vite/services/ssr/assets/contact-BA-d9y92.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var PRODUCTS = [
@@ -28,7 +28,7 @@ var contactSchema = objectType({
 });
 function ContactPage() {
 	const [submitted, setSubmitted] = (0, import_react.useState)(null);
-	const { register, handleSubmit, formState: { errors, isSubmitting }, getValues } = useForm({
+	const { register, handleSubmit, formState: { errors, isSubmitting }, getValues, reset } = useForm({
 		resolver: a(contactSchema),
 		mode: "onBlur",
 		defaultValues: {
@@ -42,12 +42,20 @@ function ContactPage() {
 	});
 	const onSubmit = async (values) => {
 		try {
-			await new Promise((r) => setTimeout(r, 700));
+			const existingRaw = window.localStorage.getItem("wp_quote_enquiries");
+			const parsed = existingRaw ? JSON.parse(existingRaw) : [];
+			const existing = Array.isArray(parsed) ? parsed : [];
+			const entry = {
+				...values,
+				submittedAt: (/* @__PURE__ */ new Date()).toISOString()
+			};
+			window.localStorage.setItem("wp_quote_enquiries", JSON.stringify([entry, ...existing]));
 			setSubmitted(values);
-			toast.success("Enquiry received", { description: `Thanks ${values.name.split(" ")[0]} — we'll be in touch within 24 hours.` });
+			reset();
+			toast.success("Quote form saved", { description: "Basic frontend form is active. Entries are saved on this device until backend is connected." });
 		} catch (err) {
 			console.error(err);
-			toast.error("Something went wrong", { description: "Please try again or reach us on WhatsApp." });
+			toast.error("Couldn't save form", { description: "Please try again or use WhatsApp." });
 		}
 	};
 	const openWhatsApp = () => {
@@ -66,10 +74,10 @@ function ContactPage() {
 	const inputCls = "h-11 w-full rounded-xl border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "relative -mt-16 md:-mt-20 pt-32 md:pt-40 pb-12 md:pb-16 bg-section",
+			className: "relative -mt-14 md:-mt-20 pt-24 md:pt-40 pb-12 md:pb-16 bg-section",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]",
+					className: "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]",
 					children: "Contact Windows Plaza"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -77,7 +85,7 @@ function ContactPage() {
 					children: "A Brand of SP Builders and Traders"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed",
+					className: "mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed",
 					children: "Tell us a little about your project — our team will get back to you with a free quote, usually within 24 hours."
 				})
 			] })
@@ -124,7 +132,7 @@ function ContactPage() {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							className: "mt-2 text-muted-foreground",
-							children: "We've received your enquiry and will get back to you within 24 hours."
+							children: "Your details are saved locally. Backend submission will be connected next."
 						})
 					]
 				}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {

@@ -1,10 +1,9 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
-import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { o as useScroll, r as useSpring, s as motion } from "../_libs/framer-motion.mjs";
-import { K as ArrowRight, W as ArrowUp, _ as Phone, b as MessageCircle } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/FloatingActions-D6ERxoaG.js
+import { U as ArrowUp, _ as Phone, y as MessageCircle } from "../_libs/lucide-react.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/FloatingActions-BotpVHoc.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var WHATSAPP_NUMBER = "918341166268";
@@ -50,29 +49,20 @@ function FloatingActions() {
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "fixed z-40 right-4 bottom-20 flex items-center gap-2.5 md:hidden",
+			className: "fixed z-40 right-3 bottom-3 flex items-center gap-2 md:hidden",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 				href: `tel:${PHONE_NUMBER}`,
 				"aria-label": "Call us",
-				className: "inline-flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
+				className: "inline-flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-5" })
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 				href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'd like to get a quote for uPVC windows or doors.")}`,
 				target: "_blank",
 				rel: "noreferrer",
 				"aria-label": "Chat with us on WhatsApp",
-				className: "inline-flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
+				className: "inline-flex size-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, { className: "size-5" })
 			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "md:hidden fixed z-40 left-4 bottom-4",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
-				to: "/contact",
-				className: "inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 h-11 text-sm font-semibold shadow-[var(--shadow-elevated)] hover:bg-primary-hover hover:-translate-y-0.5 transition-all",
-				"aria-label": "Get a free quote",
-				children: ["Get Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "size-4" })]
-			})
 		})
 	] });
 }

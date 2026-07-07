@@ -1,6 +1,6 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "./@hookform/resolvers+[...].mjs";
-import { c as require_jsx_runtime, o as composeRefs } from "./@radix-ui/react-accordion+[...].mjs";
+import { c as require_jsx_runtime, s as composeRefs } from "./@radix-ui/react-accordion+[...].mjs";
 //#region node_modules/@radix-ui/react-slot/dist/index.mjs
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();

@@ -1,7 +1,7 @@
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/SectionHeading-D1zTYUQU.js
+//#region node_modules/.nitro/vite/services/ssr/assets/SectionHeading-tv2hhjRs.js
 var import_jsx_runtime = require_jsx_runtime();
 function SectionHeading({ eyebrow, title, description, align = "center", className }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -38,7 +38,7 @@ function SectionHeading({ eyebrow, title, description, align = "center", classNa
 					duration: .6,
 					delay: .05
 				},
-				className: "text-4xl md:text-5xl lg:text-[3.5rem] text-primary",
+				className: "text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-primary",
 				children: title
 			}),
 			description && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
@@ -55,7 +55,7 @@ function SectionHeading({ eyebrow, title, description, align = "center", classNa
 					duration: .6,
 					delay: .15
 				},
-				className: "mt-5 text-base md:text-lg text-muted-foreground leading-relaxed",
+				className: "mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed",
 				children: description
 			})
 		]

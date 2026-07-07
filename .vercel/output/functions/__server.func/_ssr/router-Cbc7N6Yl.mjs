@@ -1,36 +1,87 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
-import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { c as AnimatePresence, s as motion } from "../_libs/framer-motion.mjs";
-import { C as Mail, S as MapPin, _ as Phone, n as X, x as Menu, y as PanelsTopLeft } from "../_libs/lucide-react.mjs";
+import { S as Mail, _ as Phone, b as Menu, n as X, x as MapPin } from "../_libs/lucide-react.mjs";
 import { i as cn, n as Container, t as Button } from "./Button-pr5z-nGg.mjs";
+import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { n as stringType, t as objectType } from "../_libs/zod.mjs";
 import { t as FAQS } from "./faq-D2P9Ap9H.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-BCe6ccIy.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-Cbc7N6Yl.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
+function BrandMark({ className }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+		"aria-hidden": "true",
+		className: cn("inline-flex items-center justify-center rounded-xl bg-[#0A4F8F] shadow-md", className),
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+			viewBox: "0 0 64 64",
+			className: "size-full",
+			fill: "none",
+			xmlns: "http://www.w3.org/2000/svg",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+					x: "14",
+					y: "12",
+					width: "36",
+					height: "40",
+					rx: "2",
+					stroke: "white",
+					strokeWidth: "3"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+					x1: "32",
+					y1: "12",
+					x2: "32",
+					y2: "52",
+					stroke: "white",
+					strokeWidth: "3"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", {
+					x1: "14",
+					y1: "32",
+					x2: "50",
+					y2: "32",
+					stroke: "white",
+					strokeWidth: "3"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+					d: "M32 16 L46 20 L46 44 L32 48 Z",
+					fill: "#D8ECFF",
+					stroke: "white",
+					strokeWidth: "2"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+					cx: "42",
+					cy: "32",
+					r: "1.6",
+					fill: "#0A4F8F"
+				})
+			]
+		})
+	});
+}
 var COL_LINKS = [
 	{
 		title: "Products",
 		links: [
 			{
 				label: "uPVC Windows",
-				to: "/products/windows"
+				href: "/products#upvc-windows"
 			},
 			{
 				label: "uPVC Doors",
-				to: "/products/upvc-doors"
+				href: "/products#upvc-doors"
 			},
 			{
 				label: "PVC Doors",
-				to: "/products/pvc-doors"
+				href: "/products#pvc-doors"
 			},
 			{
 				label: "Custom Solutions",
-				to: "/products/custom"
+				href: "/contact"
 			}
 		]
 	},
@@ -39,19 +90,19 @@ var COL_LINKS = [
 		links: [
 			{
 				label: "About",
-				to: "/about"
+				href: "/about"
 			},
 			{
 				label: "Gallery",
-				to: "/gallery"
+				href: "/projects"
 			},
 			{
 				label: "Testimonials",
-				to: "/testimonials"
+				href: "/projects"
 			},
 			{
 				label: "Contact",
-				to: "/contact"
+				href: "/contact"
 			}
 		]
 	},
@@ -60,19 +111,19 @@ var COL_LINKS = [
 		links: [
 			{
 				label: "Brochure",
-				to: "/brochure"
+				href: "/contact"
 			},
 			{
 				label: "FAQs",
-				to: "/faq"
+				href: "/faq"
 			},
 			{
 				label: "Warranty",
-				to: "/warranty"
+				href: "/faq"
 			},
 			{
 				label: "Installation",
-				to: "/installation"
+				href: "/faq"
 			}
 		]
 	}
@@ -89,13 +140,16 @@ function Footer() {
 						to: "/",
 						className: "block",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "block text-sm font-semibold tracking-[0.18em] uppercase text-white",
-								children: "WINDOWS PLAZA"
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "flex items-center gap-3",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrandMark, { className: "size-9 md:size-11" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "block text-sm font-semibold tracking-[0.18em] uppercase text-white",
+									children: "WINDOWS PLAZA"
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "mt-1 block text-sm text-white/80",
-								children: "Windows Plaza – Premium uPVC Windows"
+								children: "Premium uPVC Windows & Doors"
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "mt-1 block text-xs text-white/70 uppercase tracking-[0.08em]",
@@ -112,23 +166,45 @@ function Footer() {
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), " +91 9876543210"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "tel:+919876543210",
+									className: "hover:text-white transition-colors",
+									children: "+91 9876543210"
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), " +91 8765432109"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "tel:+918765432109",
+									className: "hover:text-white transition-colors",
+									children: "+91 8765432109"
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), " +91 8341166268"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "tel:+918341166268",
+									className: "hover:text-white transition-colors",
+									children: "+91 8341166268"
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { className: "size-4 text-primary" }), " hello@windowsplaza.in"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "mailto:hello@windowsplaza.in",
+									className: "hover:text-white transition-colors",
+									children: "hello@windowsplaza.in"
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-start gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, { className: "size-4 text-primary mt-0.5" }), " Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, { className: "size-4 text-primary mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+									href: "https://maps.google.com/?q=Rajula+Tallavalasa+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162",
+									target: "_blank",
+									rel: "noreferrer",
+									className: "hover:text-white transition-colors",
+									children: "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh - 531162"
+								})]
 							})
 						]
 					})
@@ -137,8 +213,8 @@ function Footer() {
 					children: col.title
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
 					className: "space-y-2.5",
-					children: col.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-						to: l.to,
+					children: col.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: l.href,
 						className: "text-sm text-white/80 hover:text-white transition-colors",
 						children: l.label
 					}) }, l.label))
@@ -196,21 +272,18 @@ function Navbar() {
 		className: cn("fixed top-0 inset-x-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]", "bg-[#084A85]/95 backdrop-blur-sm border-b border-white/12 shadow-[var(--shadow-soft)]"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, {
-				className: cn("flex h-16 items-center justify-between gap-4 transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]", scrolled ? "md:h-[68px]" : "md:h-20"),
+				className: cn("flex h-14 items-center justify-between gap-3 transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:gap-4", scrolled ? "md:h-[68px]" : "md:h-20"),
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 						to: "/",
-						className: "shrink-0 inline-flex items-center gap-2.5",
+						className: "shrink-0 inline-flex items-center gap-2 md:gap-2.5",
 						"aria-label": "Windows Plaza home",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "inline-flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[var(--shadow-soft)]",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PanelsTopLeft, { className: "size-5" })
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "block text-sm font-semibold tracking-[0.18em] uppercase text-white",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrandMark, { className: "size-9 md:size-11" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "block text-[0.72rem] md:text-sm font-semibold tracking-[0.14em] md:tracking-[0.18em] uppercase text-white",
 							children: "WINDOWS PLAZA"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "hidden sm:block text-[0.65rem] font-medium text-white/80 leading-tight",
-							children: "A Brand of SP Builders & Traders"
+							children: "Premium uPVC Windows & Doors"
 						})] })]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
@@ -218,7 +291,7 @@ function Navbar() {
 						children: NAV_LINKS.map((link) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 							to: link.to,
 							activeOptions: { exact: true },
-							className: "px-4 py-2 text-sm font-medium text-white/75 hover:text-white rounded-lg hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
+							className: "px-4 py-2 text-sm font-medium text-white/75 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
 							activeProps: { className: "px-4 py-2 text-sm font-semibold !text-primary bg-white rounded-lg border border-white shadow-[var(--shadow-soft)]" },
 							children: link.label
 						}, link.to))
@@ -231,14 +304,18 @@ function Navbar() {
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4" }), " Call Now"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 							size: "sm",
-							children: "Get a Quote"
+							asChild: true,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/contact",
+								children: "Get a Quote"
+							})
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 						type: "button",
 						"aria-label": "Toggle menu",
 						onClick: () => setOpen((s) => !s),
-						className: "md:hidden inline-flex size-10 items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
+						className: "md:hidden inline-flex size-9 items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
 						children: open ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { className: "size-5" })
 					})
 				]
@@ -269,13 +346,18 @@ function Navbar() {
 							to: link.to,
 							activeOptions: { exact: true },
 							onClick: () => setOpen(false),
-							className: "px-3 py-3 rounded-lg text-white/90 hover:bg-white/10 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
+							className: "px-3 py-3 rounded-lg text-white/90 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]",
 							activeProps: { className: "px-3 py-3 rounded-lg font-semibold !text-primary bg-white border border-white" },
 							children: link.label
 						}, link.to)),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 							className: "mt-3 w-full",
-							children: "Get a Quote"
+							asChild: true,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/contact",
+								onClick: () => setOpen(false),
+								children: "Get a Quote"
+							})
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 							href: "tel:+918341166268",
@@ -288,11 +370,11 @@ function Navbar() {
 		]
 	});
 }
-var styles_default = "/assets/styles-9yAtOYD4.css";
+var styles_default = "/assets/styles-BeRbT4a4.css";
 var DEFAULT_TITLE = "WINDOWS PLAZA - Premium uPVC Windows, uPVC Doors & PVC Doors";
 var DEFAULT_DESCRIPTION = "WINDOWS PLAZA manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.";
 var DEFAULT_OG_IMAGE = "/og-image.jpg";
-var FloatingActions = (0, import_react.lazy)(async () => ({ default: (await import("./FloatingActions-D6ERxoaG.mjs")).FloatingActions }));
+var FloatingActions = (0, import_react.lazy)(async () => ({ default: (await import("./FloatingActions-BotpVHoc.mjs")).FloatingActions }));
 var Toaster = (0, import_react.lazy)(async () => ({ default: (await import("./sonner-CuWp3DKI.mjs")).Toaster }));
 function NotFoundComponent() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -513,7 +595,7 @@ function RootComponent() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
 				id: "main",
-				className: "pt-16 md:pt-20 min-h-screen",
+				className: "pt-14 md:pt-20 min-h-screen",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, {}),
@@ -587,7 +669,7 @@ var Route$6 = createFileRoute("/sitemap.xml")({ server: { handlers: { GET: async
 		"Cache-Control": "public, max-age=3600"
 	} });
 } } } });
-var $$splitComponentImporter$5 = () => import("./projects-B5afXssz.mjs");
+var $$splitComponentImporter$5 = () => import("./projects-CpHxdjxt.mjs");
 var Route$5 = createFileRoute("/projects")({
 	head: () => ({
 		meta: [
@@ -616,7 +698,7 @@ var Route$5 = createFileRoute("/projects")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./products-IORWXxFX.mjs");
+var $$splitComponentImporter$4 = () => import("./products-CUI9g22C.mjs");
 var Route$4 = createFileRoute("/products")({
 	head: () => ({
 		meta: [
@@ -645,7 +727,7 @@ var Route$4 = createFileRoute("/products")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-var $$splitComponentImporter$3 = () => import("./faq-H29MMwqx.mjs");
+var $$splitComponentImporter$3 = () => import("./faq-BQRrb41A.mjs");
 var Route$3 = createFileRoute("/faq")({
 	head: () => ({
 		meta: [
@@ -689,7 +771,7 @@ var Route$3 = createFileRoute("/faq")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-var $$splitComponentImporter$2 = () => import("./contact-B1B-viBk.mjs");
+var $$splitComponentImporter$2 = () => import("./contact-BA-d9y92.mjs");
 var Route$2 = createFileRoute("/contact")({
 	head: () => ({
 		meta: [
@@ -726,7 +808,7 @@ objectType({
 	product: stringType().min(1, "Please choose a product"),
 	message: stringType().trim().min(5, "Please add a short message").max(1e3)
 });
-var $$splitComponentImporter$1 = () => import("./about-Brl4ouOW.mjs");
+var $$splitComponentImporter$1 = () => import("./about-BSg8wQVS.mjs");
 var Route$1 = createFileRoute("/about")({
 	head: () => ({
 		meta: [
@@ -755,7 +837,7 @@ var Route$1 = createFileRoute("/about")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-BrxOcXEv.mjs");
+var $$splitComponentImporter = () => import("./routes-CytdHfrf.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({
 		meta: [

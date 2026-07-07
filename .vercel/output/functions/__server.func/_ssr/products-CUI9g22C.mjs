@@ -1,11 +1,15 @@
+import { o as __toESM } from "../_runtime.mjs";
+import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { B as Check, K as ArrowRight, b as MessageCircle } from "../_libs/lucide-react.mjs";
+import { G as ArrowRight, y as MessageCircle, z as Check } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
-import { t as SectionHeading } from "./SectionHeading-D1zTYUQU.mjs";
+import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as gallery_6_default, i as gallery_5_default, n as gallery_2_default, r as gallery_4_default, t as gallery_1_default } from "./gallery-6-B3HHaU8a.mjs";
 import { n as product_upvc_door_default, r as product_upvc_window_default, t as product_pvc_door_default } from "./product-upvc-window-B9nSMe6t.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/products-IORWXxFX.js
+//#region node_modules/.nitro/vite/services/ssr/assets/products-CUI9g22C.js
+var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var CATEGORIES = [
 	{
@@ -219,6 +223,8 @@ var CATEGORIES = [
 ];
 function ProductCardExtended({ product }) {
 	const waMsg = encodeURIComponent(`Hi, I'd like to enquire about your ${product.title}.`);
+	const topFeatures = product.features.slice(0, 3);
+	const topApplications = product.applications.slice(0, 3);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
 		initial: {
 			opacity: 0,
@@ -233,9 +239,9 @@ function ProductCardExtended({ product }) {
 			margin: "-60px"
 		},
 		transition: { duration: .55 },
-		className: "group grid gap-0 md:grid-cols-5 bg-card rounded-xl border border-border overflow-hidden shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-hover)] transition-shadow duration-300",
+		className: "group h-full rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-hover)]",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "md:col-span-2 image-zoom aspect-4/3 md:aspect-auto bg-section",
+			className: "image-zoom aspect-[4/3] bg-section",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 				src: product.image,
 				alt: product.title,
@@ -243,47 +249,46 @@ function ProductCardExtended({ product }) {
 				className: "h-full w-full object-cover"
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "md:col-span-3 p-6 md:p-8 flex flex-col",
+			className: "flex h-full flex-col p-5 md:p-6",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-					className: "text-xl md:text-2xl font-semibold text-foreground",
+					className: "text-lg md:text-xl font-semibold text-foreground",
 					children: product.title
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-2 text-muted-foreground leading-relaxed",
+					className: "mt-2 text-sm text-muted-foreground leading-relaxed",
 					children: product.description
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "mt-6 grid gap-6 sm:grid-cols-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-xs font-semibold tracking-widest uppercase text-accent mb-3",
+					className: "mt-5",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mb-2 text-xs font-semibold tracking-widest uppercase text-accent",
 						children: "Features"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-						className: "space-y-2",
-						children: product.features.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "space-y-1.5",
+						children: topFeatures.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 							className: "flex items-start gap-2 text-sm text-foreground/90",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "size-4 text-primary mt-0.5 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: f })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "mt-0.5 size-4 shrink-0 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: f })]
 						}, f))
-					})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "text-xs font-semibold tracking-widest uppercase text-accent mb-3",
-						children: "Applications"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "flex flex-wrap gap-2",
-						children: product.applications.map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "inline-flex items-center rounded-full bg-section border border-border px-3 py-1 text-xs font-medium text-foreground/80",
-							children: a
-						}, a))
-					})] })]
+					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "mt-6 pt-6 border-t border-border",
+					className: "mt-5 flex flex-wrap gap-2",
+					children: topApplications.map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "inline-flex items-center rounded-full border border-border bg-section px-2.5 py-1 text-xs font-medium text-foreground/80",
+						children: a
+					}, a))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-auto pt-5",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 						href: `https://wa.me/918341166268?text=${waMsg}`,
 						target: "_blank",
 						rel: "noreferrer",
-						className: "inline-flex",
+						className: "inline-flex w-full",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
 							variant: "whatsapp",
+							className: "w-full justify-center",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " Enquire on WhatsApp"]
 						})
 					})
@@ -293,27 +298,45 @@ function ProductCardExtended({ product }) {
 	});
 }
 function ProductsPage() {
+	const [activeCategory, setActiveCategory] = (0, import_react.useState)(CATEGORIES[0]?.slug ?? "");
+	(0, import_react.useEffect)(() => {
+		const sections = CATEGORIES.map((c) => document.getElementById(c.slug)).filter((el) => el != null);
+		if (sections.length === 0) return;
+		const observer = new IntersectionObserver((entries) => {
+			const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+			if (visible?.target?.id) setActiveCategory(visible.target.id);
+		}, {
+			rootMargin: "-30% 0px -55% 0px",
+			threshold: [
+				.15,
+				.3,
+				.5
+			]
+		});
+		sections.forEach((section) => observer.observe(section));
+		return () => observer.disconnect();
+	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-			className: "relative -mt-16 md:-mt-20 pt-32 md:pt-40 pb-16 md:pb-20 bg-section",
+			className: "relative -mt-14 md:-mt-20 pt-24 md:pt-40 pb-12 md:pb-20 bg-section",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "text-xs font-semibold tracking-[0.2em] uppercase text-accent",
 					children: "Our products"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-					className: "mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]",
+					className: "mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]",
 					children: "The complete range of uPVC & PVC systems, in one place."
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-					className: "mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed",
+					className: "mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed",
 					children: "Windows, external doors and interior doors — engineered, manufactured and installed by a single team you can trust. Explore each system below."
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "mt-8 flex flex-wrap gap-2",
 					children: CATEGORIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 						href: `#${c.slug}`,
-						className: "inline-flex items-center rounded-full bg-background border border-border px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary hover:border-primary/30 transition-colors",
+						className: `inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activeCategory === c.slug ? "border-primary/40 bg-primary/10 text-primary" : "border-border bg-background text-foreground/80 hover:text-primary hover:border-primary/30"}`,
 						children: c.title
 					}, c.slug))
 				})
@@ -328,15 +351,15 @@ function ProductsPage() {
 				title: cat.title,
 				description: cat.intro
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "grid gap-6 md:gap-8",
+				className: "grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3",
 				children: cat.products.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCardExtended, { product: p }, p.title))
 			})] })
 		}, cat.slug)),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "rounded-xl bg-primary text-primary-foreground p-10 md:p-14 text-center shadow-[var(--shadow-elevated)]",
+			className: "rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-14 text-center shadow-[var(--shadow-elevated)]",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-					className: "text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto",
+					className: "text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto",
 					children: "Not sure which system is right for your space?"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -345,14 +368,23 @@ function ProductsPage() {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "mt-8 flex flex-wrap items-center justify-center gap-3",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 						size: "lg",
-						variant: "accent",
-						children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-						size: "lg",
-						variant: "whatsapp",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+						variant: "secondary",
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+							to: "/contact",
+							children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
+						})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: "https://wa.me/918341166268?text=Hi%2C%20I%20want%20a%20quote%20for%20your%20products.",
+						target: "_blank",
+						rel: "noreferrer",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							size: "lg",
+							variant: "whatsapp",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+						})
 					})]
 				})
 			]

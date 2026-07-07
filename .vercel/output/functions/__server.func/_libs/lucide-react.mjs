@@ -688,30 +688,6 @@ var MessageCircle = createLucideIcon("message-circle", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var PanelsTopLeft = createLucideIcon("panels-top-left", [
-	["rect", {
-		width: "18",
-		height: "18",
-		x: "3",
-		y: "3",
-		rx: "2",
-		key: "afitv7"
-	}],
-	["path", {
-		d: "M3 9h18",
-		key: "1pudct"
-	}],
-	["path", {
-		d: "M9 21V9",
-		key: "1oto5p"
-	}]
-]);
-/**
-* @license lucide-react v0.575.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
 var PhoneCall = createLucideIcon("phone-call", [
 	["path", {
 		d: "M13 2a9 9 0 0 1 9 9",
@@ -1051,4 +1027,4 @@ var Zap = createLucideIcon("zap", [["path", {
 	key: "1xq2db"
 }]]);
 //#endregion
-export { Factory as A, Check as B, Mail as C, Headphones as D, House as E, CloudRain as F, ArrowUpRight as G, Bug as H, Clock as I, ArrowRight as K, ClipboardCheck as L, Expand as M, Droplets as N, HardHat as O, Cog as P, CircleCheck as R, MapPin as S, Leaf as T, Award as U, CalendarDays as V, ArrowUp as W, Phone as _, VolumeX as a, MessageCircle as b, Truck as c, Sparkles as d, ShieldCheck as f, Quote as g, Ruler as h, Wind as i, Eye as j, Gem as k, Target as l, Send as m, X as n, Volume2 as o, Settings2 as p, Wrench as r, Users as s, Zap as t, Star as u, PhoneCall as v, LoaderCircle as w, Menu as x, PanelsTopLeft as y, ChevronDown as z };
+export { Eye as A, CalendarDays as B, LoaderCircle as C, HardHat as D, Headphones as E, Clock as F, ArrowRight as G, Award as H, ClipboardCheck as I, CircleCheck as L, Droplets as M, Cog as N, Gem as O, CloudRain as P, ChevronDown as R, Mail as S, House as T, ArrowUp as U, Bug as V, ArrowUpRight as W, Phone as _, VolumeX as a, Menu as b, Truck as c, Sparkles as d, ShieldCheck as f, Quote as g, Ruler as h, Wind as i, Expand as j, Factory as k, Target as l, Send as m, X as n, Volume2 as o, Settings2 as p, Wrench as r, Users as s, Zap as t, Star as u, PhoneCall as v, Leaf as w, MapPin as x, MessageCircle as y, Check as z };

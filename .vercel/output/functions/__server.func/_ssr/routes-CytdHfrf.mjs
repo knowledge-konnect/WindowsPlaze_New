@@ -1,16 +1,16 @@
-import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { A as Factory, B as Check, D as Headphones, E as House, F as CloudRain, G as ArrowUpRight, H as Bug, K as ArrowRight, L as ClipboardCheck, N as Droplets, O as HardHat, P as Cog, T as Leaf, U as Award, V as CalendarDays, a as VolumeX, b as MessageCircle, c as Truck, d as Sparkles, f as ShieldCheck, g as Quote, h as Ruler, i as Wind, k as Gem, o as Volume2, p as Settings2, r as Wrench, s as Users, t as Zap, u as Star, v as PhoneCall } from "../_libs/lucide-react.mjs";
+import { B as CalendarDays, D as HardHat, E as Headphones, G as ArrowRight, H as Award, I as ClipboardCheck, M as Droplets, N as Cog, O as Gem, P as CloudRain, T as House, V as Bug, W as ArrowUpRight, a as VolumeX, c as Truck, d as Sparkles, f as ShieldCheck, g as Quote, h as Ruler, i as Wind, k as Factory, o as Volume2, p as Settings2, r as Wrench, s as Users, t as Zap, u as Star, v as PhoneCall, w as Leaf, y as MessageCircle, z as Check } from "../_libs/lucide-react.mjs";
 import { i as cn, n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
 import { t as gallery_3_default } from "./gallery-3-GSB_2Cl4.mjs";
 import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DenOCVQL.mjs";
-import { t as SectionHeading } from "./SectionHeading-D1zTYUQU.mjs";
-import { t as FAQAccordion } from "./FAQAccordion-BkF074PW.mjs";
+import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { t as FAQAccordion } from "./FAQAccordion-C-f6AFUr.mjs";
 import { a as gallery_6_default, i as gallery_5_default, n as gallery_2_default, r as gallery_4_default, t as gallery_1_default } from "./gallery-6-B3HHaU8a.mjs";
 import { n as product_upvc_door_default, r as product_upvc_window_default, t as product_pvc_door_default } from "./product-upvc-window-B9nSMe6t.mjs";
 import { t as GalleryCard } from "./GalleryCard-Dh0NbFkq.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BrxOcXEv.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CytdHfrf.js
 var import_jsx_runtime = require_jsx_runtime();
 function ProductCard({ title, category, description, image, href = "#", className }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
@@ -77,7 +77,7 @@ function TestimonialCard({ quote, name, role, avatar, rating = 5, className }) {
 			margin: "-60px"
 		},
 		transition: { duration: .55 },
-		className: cn("relative h-full bg-card rounded-xl border border-border/90 p-8 md:p-9 shadow-[var(--shadow-soft)] hover-lift", className),
+		className: cn("relative h-full bg-card rounded-xl border border-border/90 p-6 sm:p-8 md:p-9 shadow-[var(--shadow-soft)] hover-lift", className),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Quote, { className: "absolute top-6 right-6 size-8 text-primary/10" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -369,7 +369,7 @@ var FAQS = [
 function Home() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
-			className: "relative overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20",
+			className: "relative overflow-hidden -mt-14 md:-mt-20 pt-14 md:pt-20 min-h-[calc(100svh-3.5rem)] md:min-h-0",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "absolute inset-0 -z-10",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -380,10 +380,10 @@ function Home() {
 					fetchPriority: "high",
 					loading: "eager",
 					decoding: "async",
-					className: "h-full w-full object-cover"
+					className: "h-full w-full object-cover object-[66%_center] md:object-center"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" })]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, {
-				className: "relative py-20 md:py-32 lg:py-40",
+				className: "relative py-10 sm:py-12 md:py-32 lg:py-40",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "max-w-2xl",
 					children: [
@@ -397,7 +397,7 @@ function Home() {
 								y: 0
 							},
 							transition: { duration: .5 },
-							className: "inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-4 py-1.5 text-xs font-medium text-white",
+							className: "inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-3 py-1 text-[11px] sm:px-4 sm:py-1.5 sm:text-xs font-medium text-white",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "size-1.5 rounded-full bg-white" }), "WINDOWS PLAZA"]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.h1, {
@@ -413,18 +413,18 @@ function Home() {
 								duration: .7,
 								delay: .05
 							},
-							className: "mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]",
+							className: "mt-4 sm:mt-6 text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "block",
 									children: "WINDOWS PLAZA"
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "mt-3 block text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85",
+									className: "mt-2 md:mt-3 block text-sm sm:text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85",
 									children: "A Brand of SP Builders and Traders"
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "mt-4 block text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em]",
+									className: "mt-3 md:mt-4 block text-2xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em] leading-[1.08]",
 									children: [
 										"Premium uPVC Windows & ",
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", {
@@ -449,7 +449,7 @@ function Home() {
 								duration: .7,
 								delay: .15
 							},
-							className: "mt-6 text-lg md:text-xl text-white/85 max-w-xl leading-relaxed",
+							className: "mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed",
 							children: [
 								"Manufactured with precision.",
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
@@ -471,14 +471,25 @@ function Home() {
 								duration: .7,
 								delay: .25
 							},
-							className: "mt-8 flex flex-wrap items-center gap-3",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							className: "mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								size: "lg",
-								children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+								variant: "secondary",
+								asChild: true,
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+									to: "/contact",
+									children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								size: "lg",
 								variant: "whatsapp",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+								asChild: true,
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+									href: "https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20uPVC%20windows%20or%20doors.",
+									target: "_blank",
+									rel: "noreferrer",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+								})
 							})]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.ul, {
@@ -494,13 +505,13 @@ function Home() {
 								duration: .6,
 								delay: .3
 							},
-							className: "mt-5 flex flex-wrap items-center gap-2.5 text-sm text-white",
+							className: "mt-4 sm:mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white",
 							children: [
 								"Factory Direct Manufacturing",
 								"Professional Installation",
 								"10-Year Warranty"
 							].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								className: "inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5",
+								className: "inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "size-4 shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item })]
 							}, item))
 						}),
@@ -517,9 +528,9 @@ function Home() {
 								duration: .7,
 								delay: .35
 							},
-							className: "mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl",
+							className: "mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-xl",
 							children: HERO_HIGHLIGHTS.map(({ icon: Icon, label }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								className: "flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur border border-white/30 px-3 py-2.5 text-sm font-medium text-white",
+								className: "flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur border border-white/30 px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-medium text-white",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, { className: "size-4 text-white shrink-0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "truncate",
 									children: label
@@ -649,9 +660,15 @@ function Home() {
 					title: "Everything you wanted to ask",
 					description: "Ten of the most common questions we hear before a project begins. Something else? Just ping us on WhatsApp.",
 					className: "mb-8"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 					variant: "whatsapp",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " Ask on WhatsApp"]
+					asChild: true,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+						href: "https://wa.me/918341166268?text=Hi%2C%20I%20have%20a%20question%20about%20your%20uPVC%20products.",
+						target: "_blank",
+						rel: "noreferrer",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " Ask on WhatsApp"]
+					})
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FAQAccordion, { items: FAQS })]
 		}) }) }),
@@ -671,7 +688,7 @@ function Home() {
 					margin: "-80px"
 				},
 				transition: { duration: .6 },
-				className: "relative overflow-hidden rounded-xl bg-primary text-primary-foreground p-10 md:p-16 lg:p-20 shadow-[var(--shadow-elevated)]",
+				className: "relative overflow-hidden rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-16 lg:p-20 shadow-[var(--shadow-elevated)]",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "relative max-w-2xl",
 					children: [
@@ -680,7 +697,7 @@ function Home() {
 							children: "Ready when you are"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-							className: "mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight",
+							className: "mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight",
 							children: "Let's design windows and doors your home will love for decades."
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -689,14 +706,24 @@ function Home() {
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "mt-8 flex flex-wrap gap-3",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								size: "lg",
-								variant: "accent",
-								children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+								variant: "secondary",
+								asChild: true,
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+									to: "/contact",
+									children: ["Get Free Quote ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, {})]
+								})
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								size: "lg",
 								variant: "whatsapp",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+								asChild: true,
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+									href: "https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20project.",
+									target: "_blank",
+									rel: "noreferrer",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
+								})
 							})]
 						})
 					]

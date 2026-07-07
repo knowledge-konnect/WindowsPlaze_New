@@ -40,6 +40,34 @@ var require_jsx_runtime = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_jsx_runtime_production();
 }));
 //#endregion
+//#region node_modules/@radix-ui/react-compose-refs/dist/index.mjs
+var import_jsx_runtime = require_jsx_runtime();
+var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
+function setRef(ref, value) {
+	if (typeof ref === "function") return ref(value);
+	else if (ref !== null && ref !== void 0) ref.current = value;
+}
+function composeRefs(...refs) {
+	return (node) => {
+		let hasCleanup = false;
+		const cleanups = refs.map((ref) => {
+			const cleanup = setRef(ref, node);
+			if (!hasCleanup && typeof cleanup == "function") hasCleanup = true;
+			return cleanup;
+		});
+		if (hasCleanup) return () => {
+			for (let i = 0; i < cleanups.length; i++) {
+				const cleanup = cleanups[i];
+				if (typeof cleanup == "function") cleanup();
+				else setRef(refs[i], null);
+			}
+		};
+	};
+}
+function useComposedRefs(...refs) {
+	return import_react.useCallback(composeRefs(...refs), refs);
+}
+//#endregion
 //#region node_modules/react-dom/cjs/react-dom.production.js
 /**
 * @license React
@@ -194,34 +222,6 @@ var require_react_dom = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	checkDCE();
 	module.exports = require_react_dom_production();
 }));
-//#endregion
-//#region node_modules/@radix-ui/react-compose-refs/dist/index.mjs
-var import_jsx_runtime = require_jsx_runtime();
-var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
-function setRef(ref, value) {
-	if (typeof ref === "function") return ref(value);
-	else if (ref !== null && ref !== void 0) ref.current = value;
-}
-function composeRefs(...refs) {
-	return (node) => {
-		let hasCleanup = false;
-		const cleanups = refs.map((ref) => {
-			const cleanup = setRef(ref, node);
-			if (!hasCleanup && typeof cleanup == "function") hasCleanup = true;
-			return cleanup;
-		});
-		if (hasCleanup) return () => {
-			for (let i = 0; i < cleanups.length; i++) {
-				const cleanup = cleanups[i];
-				if (typeof cleanup == "function") cleanup();
-				else setRef(refs[i], null);
-			}
-		};
-	};
-}
-function useComposedRefs(...refs) {
-	return import_react.useCallback(composeRefs(...refs), refs);
-}
 //#endregion
 //#region node_modules/@radix-ui/react-context/dist/index.mjs
 function createContextScope(scopeName, createContextScopeDeps = []) {
@@ -1088,4 +1088,4 @@ var Header = AccordionHeader;
 var Trigger2 = AccordionTrigger;
 var Content2 = AccordionContent;
 //#endregion
-export { Trigger2 as a, require_jsx_runtime as c, Root2 as i, Header as n, composeRefs as o, Item as r, require_react_dom as s, Content2 as t };
+export { Trigger2 as a, require_jsx_runtime as c, Root2 as i, Header as n, require_react_dom as o, Item as r, composeRefs as s, Content2 as t };

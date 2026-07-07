@@ -1,6 +1,6 @@
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { M as Expand } from "../_libs/lucide-react.mjs";
+import { j as Expand } from "../_libs/lucide-react.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/GalleryCard-Dh0NbFkq.js
 var import_jsx_runtime = require_jsx_runtime();

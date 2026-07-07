@@ -1,9 +1,9 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { a as Trigger2, c as require_jsx_runtime, i as Root2, n as Header, r as Item, t as Content2 } from "../_libs/@radix-ui/react-accordion+[...].mjs";
-import { z as ChevronDown } from "../_libs/lucide-react.mjs";
+import { R as ChevronDown } from "../_libs/lucide-react.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/FAQAccordion-BkF074PW.js
+//#region node_modules/.nitro/vite/services/ssr/assets/FAQAccordion-C-f6AFUr.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var Accordion = Root2;
@@ -40,12 +40,12 @@ function FAQAccordion({ items, className }) {
 		className: cn("w-full space-y-3", className),
 		children: items.map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(AccordionItem, {
 			value: `item-${i}`,
-			className: "border border-border rounded-xl bg-card px-5 shadow-[var(--shadow-soft)] transition-colors data-[state=open]:border-primary/35",
+			className: "border border-border rounded-xl bg-card px-4 sm:px-5 shadow-[var(--shadow-soft)] transition-colors data-[state=open]:border-primary/35",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AccordionTrigger, {
-				className: "text-left font-medium text-foreground hover:no-underline py-5",
+				className: "text-left text-sm sm:text-base font-medium text-foreground hover:no-underline py-4 sm:py-5",
 				children: item.question
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AccordionContent, {
-				className: "text-muted-foreground leading-relaxed pb-5",
+				className: "text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-5",
 				children: item.answer
 			})]
 		}, i))
