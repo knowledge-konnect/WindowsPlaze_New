@@ -13,6 +13,11 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import appCss from "../styles.css?url";
 
+const DEFAULT_TITLE = "WINDOWS PLAZA - Premium uPVC Windows, uPVC Doors & PVC Doors";
+const DEFAULT_DESCRIPTION =
+  "WINDOWS PLAZA manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.";
+const DEFAULT_OG_IMAGE = "/og-image.jpg";
+
 const FloatingActions = lazy(async () => ({
   default: (await import("@/components/common/FloatingActions")).FloatingActions,
 }));
@@ -82,12 +87,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
       { name: "theme-color", content: "#0A5EA8" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "WINDOWS PLAZA" },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: DEFAULT_OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { name: "twitter:image", content: DEFAULT_OG_IMAGE },
     ],
     links: [
+      { rel: "canonical", href: "/" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },

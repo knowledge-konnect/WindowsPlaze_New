@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const COL_LINKS = [
   {
@@ -98,18 +98,6 @@ export function Footer() {
             <p>© 2026 Windows Plaza.</p>
             <p>A Brand of SP Builders and Traders.</p>
             <p>All Rights Reserved.</p>
-          </div>
-          <div className="flex items-center gap-2">
-            {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="size-9 grid place-items-center rounded-lg border border-white/15 bg-white/5 text-white/75 hover:text-white hover:border-white/40 transition-colors"
-              >
-                <Icon className="size-4" />
-              </a>
-            ))}
           </div>
         </div>
       </Container>

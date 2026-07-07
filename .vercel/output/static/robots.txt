@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Block Lovable-internal preview paths
+Disallow: /lovable/

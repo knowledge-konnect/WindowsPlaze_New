@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type {} from "@tanstack/react-start";
+import type { } from "@tanstack/react-start";
 
-const BASE_URL = "";
+function normalizeBaseUrl(raw: string): string {
+  const withProtocol = raw.startsWith("http://") || raw.startsWith("https://")
+    ? raw
+    : `https://${raw}`;
+  return withProtocol.replace(/\/$/, "");
+}
 
 interface SitemapEntry {
   path: string;
@@ -21,11 +26,16 @@ const ENTRIES: SitemapEntry[] = [
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
+      GET: async ({ request }) => {
+        const configured = process.env.SITE_URL;
+        const baseUrl = configured
+          ? normalizeBaseUrl(configured)
+          : new URL(request.url).origin.replace(/\/$/, "");
+
         const urls = ENTRIES.map((e) =>
           [
             `  <url>`,
-            `    <loc>${BASE_URL}${e.path}</loc>`,
+            `    <loc>${baseUrl}${e.path}</loc>`,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
