@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { ArrowRight, ArrowUp, MessageCircle, Phone } from "lucide-react";
+import { ArrowUp, MessageCircle, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const WHATSAPP_NUMBER = "918341166268";
@@ -54,11 +53,11 @@ export function FloatingActions() {
       </div>
 
       {/* Mobile floating call + WhatsApp */}
-      <div className="fixed z-40 right-4 bottom-20 flex items-center gap-2.5 md:hidden">
+      <div className="fixed z-40 right-3 bottom-3 flex items-center gap-2 md:hidden">
         <a
           href={`tel:${PHONE_NUMBER}`}
           aria-label="Call us"
-          className="inline-flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
+          className="inline-flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
         >
           <Phone className="size-5" />
         </a>
@@ -69,21 +68,10 @@ export function FloatingActions() {
           target="_blank"
           rel="noreferrer"
           aria-label="Chat with us on WhatsApp"
-          className="inline-flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
+          className="inline-flex size-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
         >
           <MessageCircle className="size-5" />
         </a>
-      </div>
-
-      {/* Mobile sticky Get Quote bar */}
-      <div className="md:hidden fixed z-40 left-4 bottom-4">
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 h-11 text-sm font-semibold shadow-[var(--shadow-elevated)] hover:bg-primary-hover hover:-translate-y-0.5 transition-all"
-          aria-label="Get a free quote"
-        >
-          Get Quote <ArrowRight className="size-4" />
-        </Link>
       </div>
     </>
   );

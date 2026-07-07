@@ -124,15 +124,15 @@ function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative -mt-16 md:-mt-20 pt-32 md:pt-40 pb-12 md:pb-16 bg-section">
+      <section className="relative -mt-14 md:-mt-20 pt-24 md:pt-40 pb-12 md:pb-16 bg-section">
         <Container>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]">
             Contact Windows Plaza
           </h1>
           <p className="mt-4 text-xs font-semibold tracking-[0.2em] uppercase text-accent">
             A Brand of SP Builders and Traders
           </p>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Tell us a little about your project — our team will get back to you with a free quote,
             usually within 24 hours.
           </p>

@@ -1,9 +1,10 @@
+import { BrandMark } from "@/components/common/BrandMark";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, PanelsTopLeft, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
@@ -35,20 +36,18 @@ export function Navbar() {
     >
       <Container
         className={cn(
-          "flex h-16 items-center justify-between gap-4 transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "flex h-14 items-center justify-between gap-3 transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] md:gap-4",
           scrolled ? "md:h-[68px]" : "md:h-20",
         )}
       >
-        <Link to="/" className="shrink-0 inline-flex items-center gap-2.5" aria-label="Windows Plaza home">
-          <span className="inline-flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-[var(--shadow-soft)]">
-            <PanelsTopLeft className="size-5" />
-          </span>
+        <Link to="/" className="shrink-0 inline-flex items-center gap-2 md:gap-2.5" aria-label="Windows Plaza home">
+          <BrandMark className="size-9 md:size-11" />
           <span>
-            <span className="block text-sm font-semibold tracking-[0.18em] uppercase text-white">
+            <span className="block text-[0.72rem] md:text-sm font-semibold tracking-[0.14em] md:tracking-[0.18em] uppercase text-white">
               WINDOWS PLAZA
             </span>
             <span className="hidden sm:block text-[0.65rem] font-medium text-white/80 leading-tight">
-              A Brand of SP Builders & Traders
+              Premium uPVC Windows & Doors
             </span>
           </span>
         </Link>
@@ -86,7 +85,7 @@ export function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((s) => !s)}
-          className="md:hidden inline-flex size-10 items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
+          className="md:hidden inline-flex size-9 items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#084A85]"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>

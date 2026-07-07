@@ -322,7 +322,7 @@ function Home() {
   return (
     <>
       {/* 1. HERO */}
-      <section className="relative overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20">
+      <section className="relative overflow-hidden -mt-14 md:-mt-20 pt-14 md:pt-20 min-h-[calc(100svh-3.5rem)] md:min-h-0">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImg}
@@ -332,18 +332,18 @@ function Home() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[66%_center] md:object-center"
           />
           <div className="absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" />
         </div>
 
-        <Container className="relative py-20 md:py-32 lg:py-40">
+        <Container className="relative py-10 sm:py-12 md:py-32 lg:py-40">
           <div className="max-w-2xl">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-4 py-1.5 text-xs font-medium text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-3 py-1 text-[11px] sm:px-4 sm:py-1.5 sm:text-xs font-medium text-white"
             >
               <span className="size-1.5 rounded-full bg-white" />
               WINDOWS PLAZA
@@ -353,13 +353,13 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]"
+              className="mt-4 sm:mt-6 text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]"
             >
               <span className="block">WINDOWS PLAZA</span>
-              <span className="mt-3 block text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85">
+              <span className="mt-2 md:mt-3 block text-sm sm:text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85">
                 A Brand of SP Builders and Traders
               </span>
-              <span className="mt-4 block text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em]">
+              <span className="mt-3 md:mt-4 block text-2xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em] leading-[1.08]">
                 Premium uPVC Windows & <em className="not-italic text-white/90">PVC Doors</em> for
                 Modern Homes
               </span>
@@ -369,7 +369,7 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="mt-6 text-lg md:text-xl text-white/85 max-w-xl leading-relaxed"
+              className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed"
             >
               Manufactured with precision.
               <br />
@@ -382,7 +382,7 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-8 flex flex-wrap items-center gap-3"
+              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3"
             >
               <Button size="lg" variant="secondary" asChild>
                 <Link to="/contact">
@@ -404,7 +404,7 @@ function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-5 flex flex-wrap items-center gap-2.5 text-sm text-white"
+              className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white"
             >
               {[
                 "Factory Direct Manufacturing",
@@ -413,7 +413,7 @@ function Home() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5"
                 >
                   <Check className="size-4 shrink-0" />
                   <span>{item}</span>
@@ -425,12 +425,12 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
+              className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-xl"
             >
               {HERO_HIGHLIGHTS.map(({ icon: Icon, label }) => (
                 <li
                   key={label}
-                  className="flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur border border-white/30 px-3 py-2.5 text-sm font-medium text-white"
+                  className="flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur border border-white/30 px-2.5 py-2 sm:px-3 sm:py-2.5 text-xs sm:text-sm font-medium text-white"
                 >
                   <Icon className="size-4 text-white shrink-0" />
                   <span className="truncate">{label}</span>
@@ -605,13 +605,13 @@ function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-xl bg-primary text-primary-foreground p-10 md:p-16 lg:p-20 shadow-[var(--shadow-elevated)]"
+            className="relative overflow-hidden rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-16 lg:p-20 shadow-[var(--shadow-elevated)]"
           >
             <div className="relative max-w-2xl">
               <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary-foreground/85">
                 Ready when you are
               </p>
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+              <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
                 Let's design windows and doors your home will love for decades.
               </h2>
               <p className="mt-5 text-base md:text-lg text-primary-foreground/80 leading-relaxed">

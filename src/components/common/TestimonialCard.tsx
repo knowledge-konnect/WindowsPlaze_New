@@ -26,7 +26,7 @@ export function TestimonialCard({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55 }}
       className={cn(
-        "relative h-full bg-card rounded-xl border border-border/90 p-8 md:p-9 shadow-[var(--shadow-soft)] hover-lift",
+        "relative h-full bg-card rounded-xl border border-border/90 p-6 sm:p-8 md:p-9 shadow-[var(--shadow-soft)] hover-lift",
         className,
       )}
     >

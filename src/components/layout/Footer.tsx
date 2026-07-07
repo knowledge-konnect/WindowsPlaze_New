@@ -1,3 +1,4 @@
+import { BrandMark } from "@/components/common/BrandMark";
 import { Container } from "@/components/layout/Container";
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
@@ -39,11 +40,14 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <Link to="/" className="block">
-              <span className="block text-sm font-semibold tracking-[0.18em] uppercase text-white">
-                WINDOWS PLAZA
-              </span>
+              <div className="flex items-center gap-3">
+                <BrandMark className="size-9 md:size-11" />
+                <span className="block text-sm font-semibold tracking-[0.18em] uppercase text-white">
+                  WINDOWS PLAZA
+                </span>
+              </div>
               <span className="mt-1 block text-sm text-white/80">
-                Windows Plaza – Premium uPVC Windows
+                Premium uPVC Windows & Doors
               </span>
               <span className="mt-1 block text-xs text-white/70 uppercase tracking-[0.08em]">
                 SP Builders and Traders

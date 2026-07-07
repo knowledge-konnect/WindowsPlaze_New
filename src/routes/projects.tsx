@@ -45,13 +45,13 @@ function ProjectsPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative -mt-16 md:-mt-20 pt-32 md:pt-40 pb-16 md:pb-20 bg-section">
+      <section className="relative -mt-14 md:-mt-20 pt-24 md:pt-40 pb-12 md:pb-20 bg-section">
         <Container>
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent">Our work</p>
-          <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground max-w-3xl leading-[1.1]">
             30+ projects. One consistent standard of craftsmanship.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 sm:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             A closer look at recent installations across homes, high-rises and commercial spaces —
             each one measured, manufactured and installed by our own teams.
           </p>
@@ -77,8 +77,8 @@ function ProjectsPage() {
       {/* CTA */}
       <Section muted>
         <Container>
-          <div className="rounded-xl bg-primary text-primary-foreground p-10 md:p-14 text-center shadow-[var(--shadow-elevated)]">
-            <h2 className="text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
+          <div className="rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-14 text-center shadow-[var(--shadow-elevated)]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
               Your project could be next.
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

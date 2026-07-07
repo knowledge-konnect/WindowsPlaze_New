@@ -99,7 +99,7 @@ function AboutPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden -mt-16 md:-mt-20 pt-16 md:pt-20">
+      <section className="relative overflow-hidden -mt-14 md:-mt-20 pt-14 md:pt-20 min-h-[calc(100svh-3.5rem)] md:min-h-0">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImg}
@@ -107,11 +107,11 @@ function AboutPage() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[62%_center] md:object-center"
           />
           <div className="absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" />
         </div>
-        <Container className="relative py-20 md:py-28 lg:py-36">
+        <Container className="relative py-10 sm:py-12 md:py-28 lg:py-36">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="mt-4 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]"
+            className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]"
           >
             The dedicated uPVC windows and doors brand of SP Builders and Traders.
           </motion.h1>
@@ -132,7 +132,7 @@ function AboutPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-6 max-w-2xl text-lg text-white/85 leading-relaxed"
+            className="mt-5 sm:mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed"
           >
             WINDOWS PLAZA is focused on delivering premium uPVC windows, uPVC doors and PVC doors
             for modern residential and commercial spaces with reliable quality and expert
@@ -314,8 +314,8 @@ function AboutPage() {
       {/* CTA */}
       <Section muted>
         <Container>
-          <div className="rounded-xl bg-primary text-primary-foreground p-10 md:p-14 text-center shadow-[var(--shadow-elevated)]">
-            <h2 className="text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
+          <div className="rounded-xl bg-primary text-primary-foreground p-6 sm:p-8 md:p-14 text-center shadow-[var(--shadow-elevated)]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
               Ready to see the difference eighteen years of craftsmanship makes?
             </h2>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

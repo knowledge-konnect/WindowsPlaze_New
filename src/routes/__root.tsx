@@ -184,7 +184,7 @@ function RootComponent() {
         Skip to main content
       </a>
       <Navbar />
-      <main id="main" className="pt-16 md:pt-20 min-h-screen">
+      <main id="main" className="pt-14 md:pt-20 min-h-screen">
         <Outlet />
       </main>
       <Footer />
