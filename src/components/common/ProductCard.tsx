@@ -33,8 +33,15 @@ export function ProductCard({
       )}
     >
       <Link to={href as string} className="block">
-        <div className="image-zoom aspect-[4/3] bg-section">
-          <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
+        <div className="image-zoom aspect-[16/10] bg-section">
+          <img
+            src={image}
+            alt={title}
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          />
         </div>
         <div className="p-6">
           {category && (

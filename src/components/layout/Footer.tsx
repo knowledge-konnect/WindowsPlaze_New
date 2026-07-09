@@ -1,5 +1,6 @@
 import { BrandMark } from "@/components/common/BrandMark";
 import { Container } from "@/components/layout/Container";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 
@@ -43,14 +44,12 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <BrandMark className="size-9 md:size-11" />
                 <span className="block text-sm font-semibold tracking-[0.18em] uppercase text-white">
-                  WINDOWS PLAZA
+                  {SITE_CONFIG.name}
                 </span>
               </div>
-              <span className="mt-1 block text-sm text-white/80">
-                Premium uPVC Windows & Doors
-              </span>
+              <span className="mt-1 block text-sm text-white/80">{SITE_CONFIG.headline}</span>
               <span className="mt-1 block text-xs text-white/70 uppercase tracking-[0.08em]">
-                SP Builders and Traders
+                {SITE_CONFIG.tagline}
               </span>
             </Link>
             <p className="mt-4 text-sm text-white/80 leading-relaxed max-w-sm">
@@ -58,57 +57,74 @@ export function Footer() {
               lasting beauty.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-white/82">
-              <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 9876543210
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" />
-                <a href="tel:+918765432109" className="hover:text-white transition-colors">
-                  +91 8765432109
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="size-4 text-primary" />
-                <a href="tel:+918341166268" className="hover:text-white transition-colors">
-                  +91 8341166268
-                </a>
-              </li>
+              {SITE_CONFIG.phones.map((phone) => (
+                <li key={phone.href} className="flex items-center gap-2.5">
+                  <Phone className="size-4 text-primary" />
+                  <a href={phone.href} className="hover:text-white transition-colors">
+                    {phone.display}
+                  </a>
+                </li>
+              ))}
               <li className="flex items-center gap-2.5">
                 <Mail className="size-4 text-primary" />
                 <a
-                  href="mailto:hello@windowsplaza.in"
+                  href={`mailto:${SITE_CONFIG.email}`}
                   className="hover:text-white transition-colors"
                 >
-                  hello@windowsplaza.in
+                  {SITE_CONFIG.email}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="size-4 text-primary mt-0.5" />
                 <a
-                  href="https://maps.google.com/?q=Rajula+Tallavalasa+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162"
+                  href={SITE_CONFIG.address.mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam,
-                  Visakhapatnam, Andhra Pradesh - 531162
+                  {SITE_CONFIG.address.full}
                 </a>
               </li>
             </ul>
+
+            <div className="mt-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
+                Authorized Partner
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                {SITE_CONFIG.partners.map((partner) =>
+                  partner.logoSrc ? (
+                    <img
+                      key={partner.name}
+                      src={partner.logoSrc}
+                      alt={partner.logoAlt}
+                      loading="lazy"
+                      className="h-9 w-auto rounded-md bg-white px-2 py-1"
+                    />
+                  ) : (
+                    <span
+                      key={partner.name}
+                      className="inline-flex rounded-md border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-white/80"
+                    >
+                      {/* TODO: Add official partner logo asset */}
+                      {partner.name}
+                    </span>
+                  ),
+                )}
+              </div>
+            </div>
           </div>
 
           {COL_LINKS.map((col) => (
             <div key={col.title}>
-              <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">
-                {col.title}
-              </h4>
+              <h4 className="text-sm font-semibold text-white mb-4 tracking-wide">{col.title}</h4>
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-white/80 hover:text-white transition-colors">
+                    <a
+                      href={l.href}
+                      className="text-sm text-white/80 hover:text-white transition-colors"
+                    >
                       {l.label}
                     </a>
                   </li>
@@ -120,8 +136,8 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="text-xs text-white/75">
-            <p>© 2026 Windows Plaza.</p>
-            <p>A Brand of SP Builders and Traders.</p>
+            <p>© 2026 {SITE_CONFIG.name}.</p>
+            <p>{SITE_CONFIG.tagline}.</p>
             <p>All Rights Reserved.</p>
           </div>
         </div>

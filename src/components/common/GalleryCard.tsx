@@ -30,6 +30,8 @@ export function GalleryCard({ image, title, tag, onClick, className }: GalleryCa
           src={image}
           alt={title ?? "Gallery item"}
           loading="lazy"
+          decoding="async"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="h-full w-full object-cover"
         />
       </div>

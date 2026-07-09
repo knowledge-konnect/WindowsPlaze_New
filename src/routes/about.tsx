@@ -8,6 +8,7 @@ import {
   SectionHeading,
   StatisticsCard,
 } from "@/components";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
@@ -30,17 +31,17 @@ import {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About WINDOWS PLAZA — A Brand of SP Builders and Traders" },
+      { title: `About ${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}` },
       {
         name: "description",
         content:
-          "Learn how WINDOWS PLAZA, the dedicated uPVC windows and doors brand of SP Builders and Traders, manufactures and installs premium uPVC windows, uPVC doors and PVC doors.",
+          `Learn how ${SITE_CONFIG.name}, ${SITE_CONFIG.tagline.toLowerCase()}, manufactures and installs premium uPVC windows, uPVC doors and PVC doors.`,
       },
-      { property: "og:title", content: "About WINDOWS PLAZA — Premium uPVC Windows and Doors" },
+      { property: "og:title", content: `About ${SITE_CONFIG.name} — Premium uPVC Windows and Doors` },
       {
         property: "og:description",
         content:
-          "WINDOWS PLAZA is the customer-facing brand backed by SP Builders and Traders, focused on premium uPVC and PVC door and window solutions.",
+          `${SITE_CONFIG.name} is the customer-facing unit backed by ${SITE_CONFIG.parentCompany}, focused on premium uPVC and PVC door and window solutions.`,
       },
       { property: "og:url", content: "/about" },
     ],
@@ -126,7 +127,7 @@ function AboutPage() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]"
           >
-            The dedicated uPVC windows and doors brand of SP Builders and Traders.
+            {SITE_CONFIG.tagline}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -169,14 +170,14 @@ function AboutPage() {
               </h2>
               <div className="mt-6 max-w-2xl space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  WINDOWS PLAZA is the dedicated uPVC windows and doors brand of SP Builders and
-                  Traders, created to provide specialized fenestration solutions with a premium,
-                  customer-first experience.
+                  {SITE_CONFIG.name} is the dedicated uPVC windows and doors unit of{" "}
+                  {SITE_CONFIG.parentCompany}, created to provide specialized fenestration
+                  solutions with a premium, customer-first experience.
                 </p>
                 <p>
-                  SP Builders and Traders is an established company committed to delivering premium
-                  building solutions across residential and commercial projects. That legacy of
-                  quality and accountability forms the foundation behind WINDOWS PLAZA.
+                  {SITE_CONFIG.parentCompany} is an established company committed to delivering
+                  premium building solutions across residential and commercial projects. That
+                  legacy of quality and accountability forms the foundation behind {SITE_CONFIG.name}.
                 </p>
                 <p>
                   At WINDOWS PLAZA, our team specializes in manufacturing and installing

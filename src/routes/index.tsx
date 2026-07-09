@@ -3,13 +3,12 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Award,
-  Bug,
   CalendarDays,
   Check,
   ClipboardCheck,
   CloudRain,
   Cog,
-  Droplets,
+  DoorOpen,
   Factory,
   Gem,
   HardHat,
@@ -17,6 +16,7 @@ import {
   Home as HomeIcon,
   Leaf,
   MessageCircle,
+  Package,
   PhoneCall,
   Ruler,
   Settings2,
@@ -43,6 +43,7 @@ import {
   StatisticsCard,
   TestimonialCard,
 } from "@/components";
+import { SITE_CONFIG, whatsAppUrl } from "@/lib/siteConfig";
 
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
@@ -86,10 +87,10 @@ const HERO_HIGHLIGHTS = [
 ];
 
 const STATS = [
-  { icon: CalendarDays, value: 2, suffix: "", label: "Years of Operations" },
-  { icon: HomeIcon, value: 32, suffix: "+", label: "Projects Completed" },
+  { icon: Award, value: 320, suffix: "+", label: "Windows & Doors Installed" },
   { icon: Users, value: 48, suffix: "+", label: "Happy Customers" },
-  { icon: Award, value: 320, suffix: "+", label: "Windows Installed" },
+  { icon: HomeIcon, value: 32, suffix: "+", label: "Projects Completed" },
+  { icon: CalendarDays, value: 2, suffix: "+", label: "Years of Operation" },
 ];
 
 const WHY_US = [
@@ -153,6 +154,14 @@ const PRODUCTS = [
       "Lightweight, waterproof interior doors ideal for bathrooms, kitchens and utility spaces — moisture-proof for life.",
     image: productPvcDoor,
   },
+  {
+    title: "PETRA Steel Doors",
+    category: "Steel Doors",
+    // TODO: Replace with a real PETRA steel door product photo.
+    description:
+      "Premium steel doors by PETRA — built for strength, security and style. Ideal for main entrances and commercial applications.",
+    image: g4,
+  },
 ];
 
 const BENEFITS = [
@@ -165,30 +174,31 @@ const BENEFITS = [
   {
     icon: Wind,
     title: "Dust Resistant",
-    description:
-      "EPDM gaskets and multi-point locks form an airtight seal against dust and pollen.",
+    description: "EPDM gaskets and multi-point locks keep dust and grime out.",
   },
   {
     icon: Zap,
-    title: "Energy Saving",
+    title: "Energy Efficient",
     description:
-      "Thermally insulated frames cut cooling and heating loads by up to 30% year-round.",
+      "Thermally insulated frames cut cooling and heating loads by up to 30%.",
   },
   {
-    icon: Droplets,
-    title: "100% Waterproof",
-    description: "Engineered drainage and welded corners keep monsoon rain firmly on the outside.",
-  },
-  {
-    icon: Bug,
-    title: "Termite Proof",
-    description: "uPVC is inorganic — termites, borers and fungus can't touch it, ever.",
+    icon: CloudRain,
+    title: "Weather Resistant",
+    description:
+      "UV-stable, corrosion-proof profiles built for coastal Andhra Pradesh climate.",
   },
   {
     icon: Wrench,
     title: "Low Maintenance",
     description:
-      "No painting, polishing or sealing. A soft cloth and mild soap keep them factory-fresh.",
+      "No painting, no polishing — a quick wipe keeps them looking new for years.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Enhanced Security",
+    description:
+      "Multi-point locking systems and reinforced frames for added peace of mind.",
   },
 ];
 
@@ -230,6 +240,7 @@ const PROCESS = [
   },
 ];
 
+// TODO: Replace stock gallery images with real installation photos from Windows Plaza projects.
 const GALLERY = [
   { image: g1, title: "Willow Lane Residence", tag: "Villa" },
   { image: g2, title: "Sunlit Kitchen Retreat", tag: "Interior" },
@@ -334,11 +345,11 @@ function Home() {
             decoding="async"
             className="h-full w-full object-cover object-[66%_center] md:object-center"
           />
-          <div className="absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" />
+          <div className="absolute inset-0 bg-[#084A85]/[0.48] md:bg-[#084A85]/[0.42]" />
         </div>
 
         <Container className="relative py-10 sm:py-12 md:py-32 lg:py-40">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -346,55 +357,58 @@ function Home() {
               className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-3 py-1 text-[11px] sm:px-4 sm:py-1.5 sm:text-xs font-medium text-white"
             >
               <span className="size-1.5 rounded-full bg-white" />
-              WINDOWS PLAZA
+              {SITE_CONFIG.name}
             </motion.span>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="mt-4 sm:mt-6 text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]"
+              className="mt-6 sm:mt-7 text-4xl sm:text-[4.15rem] md:text-[4.85rem] lg:text-[5.75rem] tracking-[-0.02em] text-white leading-[1.02]"
             >
-              <span className="block">WINDOWS PLAZA</span>
-              <span className="mt-2 md:mt-3 block text-sm sm:text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85">
-                A Brand of SP Builders and Traders
-              </span>
-              <span className="mt-3 md:mt-4 block text-2xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em] leading-[1.08]">
-                Premium uPVC Windows & <em className="not-italic text-white/90">PVC Doors</em> for
-                Modern Homes
-              </span>
+              {SITE_CONFIG.name}
             </motion.h1>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="mt-4 md:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-white/95 leading-[1.1]"
+            >
+              {SITE_CONFIG.headline}
+            </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed"
+              className="mt-4 md:mt-5 text-sm sm:text-base font-medium tracking-[0.12em] uppercase text-white/80"
             >
-              Manufactured with precision.
-              <br />
-              Installed by experts.
-              <br />
-              Built to last.
+              {SITE_CONFIG.tagline}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed"
+            >
+              {SITE_CONFIG.subheadline}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3"
+              className="mt-7 sm:mt-9 flex flex-wrap items-center gap-3 sm:gap-3.5"
             >
-              <Button size="lg" variant="secondary" asChild>
+              <Button size="lg" variant="secondary" className="h-14 px-10 text-[1.05rem] font-semibold" asChild>
                 <Link to="/contact">
                   Get Free Quote <ArrowRight />
                 </Link>
               </Button>
               <Button size="lg" variant="whatsapp" asChild>
-                <a
-                  href="https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20uPVC%20windows%20or%20doors."
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={whatsAppUrl()} target="_blank" rel="noreferrer">
                   <MessageCircle /> WhatsApp Us
                 </a>
               </Button>
@@ -404,6 +418,24 @@ function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/90"
+              aria-label="Free services included"
+            >
+              {SITE_CONFIG.trustBadges.map((item) => (
+                <li
+                  key={item}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5"
+                >
+                  <Check className="size-4 shrink-0" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </motion.ul>
+
+            <motion.ul
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
               className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white"
             >
               {[
@@ -464,6 +496,66 @@ function Home() {
             {WHY_US.map((f) => (
               <FeatureCard key={f.title} {...f} />
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 3b. BRAND PARTNERS */}
+      <Section className="bg-section">
+        <Container>
+          <SectionHeading
+            eyebrow="Trusted partners"
+            title="Trusted Profile & Hardware Partners"
+            description="We source profiles and hardware from industry-leading partners for lasting performance."
+          />
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+            {SITE_CONFIG.partners.map((partner, i) => {
+              const isDoor = partner.name.toLowerCase().includes("door");
+              // BAYDEE → deep green; PETRA → dark steel
+              const palette = isDoor
+                ? { bg: "#1C2128", accent: "#6B7280", icon: "#9CA3AF", label: "#F3F4F6" }
+                : { bg: "#0B7A5C", accent: "#064E3B", icon: "#FFFFFF", label: "#ECFDF5" };
+              return partner.logoSrc ? (
+                <img
+                  key={partner.name}
+                  src={partner.logoSrc}
+                  alt={partner.logoAlt}
+                  className="h-16 object-contain"
+                  loading="lazy"
+                />
+              ) : (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  style={{ background: palette.bg }}
+                  className="group flex items-center gap-4 rounded-2xl px-7 py-5 shadow-[var(--shadow-elevated)] hover-lift min-w-[230px]"
+                  role="img"
+                  aria-label={partner.logoAlt}
+                >
+                  <div
+                    style={{ background: palette.accent, color: palette.icon }}
+                    className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl transition-opacity duration-300 group-hover:opacity-90"
+                  >
+                    {isDoor ? (
+                      <DoorOpen className="size-5" />
+                    ) : (
+                      <Package className="size-5" />
+                    )}
+                  </div>
+                  <div>
+                    <p style={{ color: palette.label }} className="text-sm font-bold tracking-wide leading-tight">
+                      {partner.name}
+                    </p>
+                    <p style={{ color: palette.label }} className="mt-0.5 text-xs opacity-70">
+                      Authorized Partner
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </Container>
       </Section>
@@ -583,16 +675,67 @@ function Home() {
                 className="mb-8"
               />
               <Button variant="whatsapp" asChild>
-                <a
-                  href="https://wa.me/918341166268?text=Hi%2C%20I%20have%20a%20question%20about%20your%20uPVC%20products."
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={whatsAppUrl("Hi, I have a question about your uPVC products.")} target="_blank" rel="noreferrer">
                   <MessageCircle /> Ask on WhatsApp
                 </a>
               </Button>
             </div>
             <FAQAccordion items={FAQS} />
+          </div>
+        </Container>
+      </Section>
+
+      {/* 9b. FOUNDER */}
+      <Section muted>
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.55 }}
+            className="mx-auto max-w-lg text-center rounded-xl border border-border bg-card p-8 md:p-10 shadow-[var(--shadow-soft)]"
+          >
+            <h3 className="text-xl font-semibold text-primary">Need Expert Advice?</h3>
+            <p className="mt-3 text-lg font-medium text-foreground">{SITE_CONFIG.founder.name}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{SITE_CONFIG.founder.title}</p>
+            <ul className="mt-5 grid gap-2 text-sm text-muted-foreground" aria-label="Founder consultation benefits">
+              {[
+                "Free Measurement",
+                "Free Quotation",
+                "Professional Consultation",
+              ].map((item) => (
+                <li key={item} className="inline-flex items-center justify-center gap-2">
+                  <Check className="size-4 text-primary" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Button className="mt-6" size="lg" asChild>
+              <a href={SITE_CONFIG.founder.phone.href}>
+                <PhoneCall className="size-4" /> Call Now
+              </a>
+            </Button>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* 9c. SERVICE AREAS */}
+      <Section>
+        <Container>
+          <SectionHeading
+            eyebrow="Service areas"
+            title="We Proudly Serve"
+            description="Premium uPVC windows and doors across coastal Andhra Pradesh and nearby districts."
+          />
+          <div className="flex flex-wrap justify-center gap-3">
+            {SITE_CONFIG.serviceAreas.map((area) => (
+              <span
+                key={area}
+                className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/15"
+              >
+                {area}
+              </span>
+            ))}
           </div>
         </Container>
       </Section>
@@ -625,11 +768,7 @@ function Home() {
                   </Link>
                 </Button>
                 <Button size="lg" variant="whatsapp" asChild>
-                  <a
-                    href="https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20project."
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={whatsAppUrl("Hi, I'd like a free quote for my project.")} target="_blank" rel="noreferrer">
                     <MessageCircle /> WhatsApp Us
                   </a>
                 </Button>

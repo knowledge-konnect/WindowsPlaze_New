@@ -11,12 +11,13 @@ import { Suspense, lazy, type ReactNode } from "react";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import appCss from "../styles.css?url";
 
-const DEFAULT_TITLE = "WINDOWS PLAZA - Premium uPVC Windows, uPVC Doors & PVC Doors";
-const DEFAULT_DESCRIPTION =
-  "WINDOWS PLAZA manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.";
+const DEFAULT_TITLE = `${SITE_CONFIG.name} — ${SITE_CONFIG.headline}`;
+const DEFAULT_DESCRIPTION = `${SITE_CONFIG.name} manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces. ${SITE_CONFIG.tagline}.`;
 const DEFAULT_OG_IMAGE = "/og-image.jpg";
+const CANONICAL_URL = SITE_CONFIG.seo.canonicalOrigin || "/";
 
 const FloatingActions = lazy(async () => ({
   default: (await import("@/components/common/FloatingActions")).FloatingActions,
@@ -94,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "WINDOWS PLAZA" },
       { property: "og:title", content: DEFAULT_TITLE },
       { property: "og:description", content: DEFAULT_DESCRIPTION },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: CANONICAL_URL },
       { property: "og:image", content: DEFAULT_OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: DEFAULT_TITLE },
@@ -102,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: DEFAULT_OG_IMAGE },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: CANONICAL_URL },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
@@ -119,35 +120,96 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "WINDOWS PLAZA",
-          description:
-            "Manufacturer and installer of premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.",
+          name: SITE_CONFIG.name,
+          description: `${SITE_CONFIG.tagline}. Manufacturer and installer of premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.`,
           image: "/favicon.ico",
-          telephone: "+91-8341166268",
-          email: "hello@windowsplaza.in",
+          telephone: SITE_CONFIG.phones.map((p) => p.display).join(", "),
+          email: SITE_CONFIG.email,
           priceRange: "₹₹",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam",
+            streetAddress: "Rajula Tallavalasa, Near Thirumala College, Bheemunipatnam",
             addressLocality: "Visakhapatnam",
+            addressRegion: "Andhra Pradesh",
             postalCode: "531162",
             addressCountry: "IN",
           },
-          openingHoursSpecification: [
+          ...(SITE_CONFIG.seo.businessHours
+            ? { openingHoursSpecification: SITE_CONFIG.seo.businessHours }
+            : {
+              // TODO: Add verified opening hours from owner.
+              openingHours: "TODO",
+            }),
+          ...(SITE_CONFIG.seo.geo.latitude !== null && SITE_CONFIG.seo.geo.longitude !== null
+            ? {
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: SITE_CONFIG.seo.geo.latitude,
+                longitude: SITE_CONFIG.seo.geo.longitude,
+              },
+            }
+            : {
+              // TODO: Add verified business geocoordinates.
+              geo: "TODO",
+            }),
+          ...(SITE_CONFIG.seo.serviceRadiusKm !== null
+            ? { areaServed: `${SITE_CONFIG.seo.serviceRadiusKm} km radius` }
+            : {
+              // TODO: Add verified service radius.
+              areaServed: "TODO",
+            }),
+          sameAs: [],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: SITE_CONFIG.name,
+          legalName: SITE_CONFIG.parentCompany,
+          url: CANONICAL_URL,
+          logo: "/favicon.svg",
+          email: SITE_CONFIG.email,
+          telephone: SITE_CONFIG.primaryPhone.display,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Rajula Tallavalasa, Near Thirumala College, Bheemunipatnam",
+            addressLocality: "Visakhapatnam",
+            addressRegion: "Andhra Pradesh",
+            postalCode: "531162",
+            addressCountry: "IN",
+          },
+          sameAs: SITE_CONFIG.seo.googleReviewsUrl ? [SITE_CONFIG.seo.googleReviewsUrl] : [],
+          // TODO: Add social profile URLs and Google Reviews URL when available.
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Windows Plaza Product Categories",
+          itemListElement: [
             {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              opens: "09:00",
-              closes: "19:00",
+              "@type": "Product",
+              name: "uPVC Windows",
+              category: "Windows",
+              brand: SITE_CONFIG.name,
             },
             {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: "Saturday",
-              opens: "10:00",
-              closes: "17:00",
+              "@type": "Product",
+              name: "uPVC Doors",
+              category: "Doors",
+              brand: SITE_CONFIG.name,
+            },
+            {
+              "@type": "Product",
+              name: "PVC Doors",
+              category: "Interiors",
+              brand: SITE_CONFIG.name,
             },
           ],
-          sameAs: [],
         }),
       },
     ],

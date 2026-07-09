@@ -1,13 +1,12 @@
 import { o as __toESM } from "../_runtime.mjs";
+import { n as whatsAppUrl, t as SITE_CONFIG } from "./siteConfig-DryuP_nf.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { o as useScroll, r as useSpring, s as motion } from "../_libs/framer-motion.mjs";
-import { U as ArrowUp, _ as Phone, y as MessageCircle } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/FloatingActions-BotpVHoc.js
+import { V as ArrowUp, _ as Phone, y as MessageCircle } from "../_libs/lucide-react.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/FloatingActions-DFLXaDZK.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var WHATSAPP_NUMBER = "918341166268";
-var PHONE_NUMBER = "+918341166268";
 function FloatingActions() {
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, {
@@ -30,33 +29,42 @@ function FloatingActions() {
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "fixed z-40 right-4 md:right-6 bottom-4 md:bottom-6 hidden md:flex flex-col items-end gap-3",
-			children: [showTop && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-				type: "button",
-				onClick: () => window.scrollTo({
-					top: 0,
-					behavior: "smooth"
+			children: [
+				showTop && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					type: "button",
+					onClick: () => window.scrollTo({
+						top: 0,
+						behavior: "smooth"
+					}),
+					"aria-label": "Scroll back to top",
+					className: "hidden md:inline-flex size-11 items-center justify-center rounded-full bg-background border border-border text-foreground shadow-[var(--shadow-elevated)] hover:-translate-y-0.5 transition-transform",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUp, { className: "size-5" })
 				}),
-				"aria-label": "Scroll back to top",
-				className: "hidden md:inline-flex size-11 items-center justify-center rounded-full bg-background border border-border text-foreground shadow-[var(--shadow-elevated)] hover:-translate-y-0.5 transition-transform",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUp, { className: "size-5" })
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-				href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'd like to get a quote for uPVC windows or doors.")}`,
-				target: "_blank",
-				rel: "noreferrer",
-				"aria-label": "Chat with us on WhatsApp",
-				className: "inline-flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, { className: "size-6" })
-			})]
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					href: whatsAppUrl(),
+					target: "_blank",
+					rel: "noreferrer",
+					"aria-label": "Chat with us on WhatsApp",
+					className: "inline-flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, { className: "size-6" })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					href: SITE_CONFIG.primaryPhone.href,
+					"aria-label": "Call us",
+					className: "inline-flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-6" })
+				})
+			]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "fixed z-40 right-3 bottom-3 flex items-center gap-2 md:hidden",
+			className: "fixed z-40 right-3 md:right-4 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] flex items-center gap-2 md:hidden",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-				href: `tel:${PHONE_NUMBER}`,
+				href: SITE_CONFIG.primaryPhone.href,
 				"aria-label": "Call us",
 				className: "inline-flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-5" })
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-				href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I'd like to get a quote for uPVC windows or doors.")}`,
+				href: whatsAppUrl(),
 				target: "_blank",
 				rel: "noreferrer",
 				"aria-label": "Chat with us on WhatsApp",

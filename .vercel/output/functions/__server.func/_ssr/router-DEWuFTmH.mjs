@@ -1,4 +1,5 @@
 import { o as __toESM } from "../_runtime.mjs";
+import { t as SITE_CONFIG } from "./siteConfig-DryuP_nf.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { c as AnimatePresence, s as motion } from "../_libs/framer-motion.mjs";
@@ -9,7 +10,7 @@ import { n as stringType, t as objectType } from "../_libs/zod.mjs";
 import { t as FAQS } from "./faq-D2P9Ap9H.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Cbc7N6Yl.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DEWuFTmH.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function BrandMark({ className }) {
@@ -144,16 +145,16 @@ function Footer() {
 								className: "flex items-center gap-3",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrandMark, { className: "size-9 md:size-11" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 									className: "block text-sm font-semibold tracking-[0.18em] uppercase text-white",
-									children: "WINDOWS PLAZA"
+									children: SITE_CONFIG.name
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "mt-1 block text-sm text-white/80",
-								children: "Premium uPVC Windows & Doors"
+								children: SITE_CONFIG.headline
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 								className: "mt-1 block text-xs text-white/70 uppercase tracking-[0.08em]",
-								children: "SP Builders and Traders"
+								children: SITE_CONFIG.tagline
 							})
 						]
 					}),
@@ -164,49 +165,51 @@ function Footer() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
 						className: "mt-6 space-y-3 text-sm text-white/82",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							SITE_CONFIG.phones.map((phone) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "tel:+919876543210",
+									href: phone.href,
 									className: "hover:text-white transition-colors",
-									children: "+91 9876543210"
+									children: phone.display
 								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "tel:+918765432109",
-									className: "hover:text-white transition-colors",
-									children: "+91 8765432109"
-								})]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-								className: "flex items-center gap-2.5",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "tel:+918341166268",
-									className: "hover:text-white transition-colors",
-									children: "+91 8341166268"
-								})]
-							}),
+							}, phone.href)),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-center gap-2.5",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { className: "size-4 text-primary" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "mailto:hello@windowsplaza.in",
+									href: `mailto:${SITE_CONFIG.email}`,
 									className: "hover:text-white transition-colors",
-									children: "hello@windowsplaza.in"
+									children: SITE_CONFIG.email
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 								className: "flex items-start gap-2.5",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, { className: "size-4 text-primary mt-0.5" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-									href: "https://maps.google.com/?q=Rajula+Tallavalasa+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162",
+									href: SITE_CONFIG.address.mapsUrl,
 									target: "_blank",
 									rel: "noreferrer",
 									className: "hover:text-white transition-colors",
-									children: "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh - 531162"
+									children: SITE_CONFIG.address.full
 								})]
 							})
 						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-7",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs font-semibold uppercase tracking-[0.14em] text-white/70",
+							children: "Authorized Partner"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-3 flex flex-wrap items-center gap-3",
+							children: SITE_CONFIG.partners.map((partner) => partner.logoSrc ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: partner.logoSrc,
+								alt: partner.logoAlt,
+								loading: "lazy",
+								className: "h-9 w-auto rounded-md bg-white px-2 py-1"
+							}, partner.name) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "inline-flex rounded-md border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-white/80",
+								children: partner.name
+							}, partner.name))
+						})]
 					})
 				] }), COL_LINKS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
 					className: "text-sm font-semibold text-white mb-4 tracking-wide",
@@ -224,8 +227,12 @@ function Footer() {
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "text-xs text-white/75",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "© 2026 Windows Plaza." }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "A Brand of SP Builders and Traders." }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							"© 2026 ",
+							SITE_CONFIG.name,
+							"."
+						] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [SITE_CONFIG.tagline, "."] }),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "All Rights Reserved." })
 					]
 				})
@@ -278,12 +285,12 @@ function Navbar() {
 						to: "/",
 						className: "shrink-0 inline-flex items-center gap-2 md:gap-2.5",
 						"aria-label": "Windows Plaza home",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrandMark, { className: "size-9 md:size-11" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrandMark, { className: "size-11 md:size-14" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "block text-[0.72rem] md:text-sm font-semibold tracking-[0.14em] md:tracking-[0.18em] uppercase text-white",
-							children: "WINDOWS PLAZA"
+							children: SITE_CONFIG.name
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "hidden sm:block text-[0.65rem] font-medium text-white/80 leading-tight",
-							children: "Premium uPVC Windows & Doors"
+							children: SITE_CONFIG.headline
 						})] })]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
@@ -299,7 +306,7 @@ function Navbar() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "hidden md:flex items-center gap-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							href: "tel:+918341166268",
+							href: SITE_CONFIG.primaryPhone.href,
 							className: "inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3.5 py-2 text-sm font-medium text-white shadow-[var(--shadow-soft)] hover:border-white/55 hover:bg-white/16 transition-colors",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4" }), " Call Now"]
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
@@ -360,7 +367,7 @@ function Navbar() {
 							})
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							href: "tel:+918341166268",
+							href: SITE_CONFIG.primaryPhone.href,
 							className: "inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/50 bg-transparent px-3.5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Phone, { className: "size-4" }), " Call Now"]
 						})
@@ -370,11 +377,12 @@ function Navbar() {
 		]
 	});
 }
-var styles_default = "/assets/styles-BeRbT4a4.css";
-var DEFAULT_TITLE = "WINDOWS PLAZA - Premium uPVC Windows, uPVC Doors & PVC Doors";
-var DEFAULT_DESCRIPTION = "WINDOWS PLAZA manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.";
+var styles_default = "/assets/styles-DM0HkYKa.css";
+var DEFAULT_TITLE = `${SITE_CONFIG.name} — ${SITE_CONFIG.headline}`;
+var DEFAULT_DESCRIPTION = `${SITE_CONFIG.name} manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces. ${SITE_CONFIG.tagline}.`;
 var DEFAULT_OG_IMAGE = "/og-image.jpg";
-var FloatingActions = (0, import_react.lazy)(async () => ({ default: (await import("./FloatingActions-BotpVHoc.mjs")).FloatingActions }));
+var CANONICAL_URL = SITE_CONFIG.seo.canonicalOrigin || "/";
+var FloatingActions = (0, import_react.lazy)(async () => ({ default: (await import("./FloatingActions-DFLXaDZK.mjs")).FloatingActions }));
 var Toaster = (0, import_react.lazy)(async () => ({ default: (await import("./sonner-CuWp3DKI.mjs")).Toaster }));
 function NotFoundComponent() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -476,7 +484,7 @@ var Route$7 = createRootRouteWithContext()({
 			},
 			{
 				property: "og:url",
-				content: "/"
+				content: CANONICAL_URL
 			},
 			{
 				property: "og:image",
@@ -502,7 +510,7 @@ var Route$7 = createRootRouteWithContext()({
 		links: [
 			{
 				rel: "canonical",
-				href: "/"
+				href: CANONICAL_URL
 			},
 			{
 				rel: "stylesheet",
@@ -532,44 +540,87 @@ var Route$7 = createRootRouteWithContext()({
 				href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
 			}
 		],
-		scripts: [{
-			type: "application/ld+json",
-			children: JSON.stringify({
-				"@context": "https://schema.org",
-				"@type": "LocalBusiness",
-				name: "WINDOWS PLAZA",
-				description: "Manufacturer and installer of premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.",
-				image: "/favicon.ico",
-				telephone: "+91-8341166268",
-				email: "hello@windowsplaza.in",
-				priceRange: "₹₹",
-				address: {
-					"@type": "PostalAddress",
-					streetAddress: "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam",
-					addressLocality: "Visakhapatnam",
-					postalCode: "531162",
-					addressCountry: "IN"
-				},
-				openingHoursSpecification: [{
-					"@type": "OpeningHoursSpecification",
-					dayOfWeek: [
-						"Monday",
-						"Tuesday",
-						"Wednesday",
-						"Thursday",
-						"Friday"
-					],
-					opens: "09:00",
-					closes: "19:00"
-				}, {
-					"@type": "OpeningHoursSpecification",
-					dayOfWeek: "Saturday",
-					opens: "10:00",
-					closes: "17:00"
-				}],
-				sameAs: []
-			})
-		}]
+		scripts: [
+			{
+				type: "application/ld+json",
+				children: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "LocalBusiness",
+					name: SITE_CONFIG.name,
+					description: `${SITE_CONFIG.tagline}. Manufacturer and installer of premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces.`,
+					image: "/favicon.ico",
+					telephone: SITE_CONFIG.phones.map((p) => p.display).join(", "),
+					email: SITE_CONFIG.email,
+					priceRange: "₹₹",
+					address: {
+						"@type": "PostalAddress",
+						streetAddress: "Rajula Tallavalasa, Near Thirumala College, Bheemunipatnam",
+						addressLocality: "Visakhapatnam",
+						addressRegion: "Andhra Pradesh",
+						postalCode: "531162",
+						addressCountry: "IN"
+					},
+					...SITE_CONFIG.seo.businessHours ? { openingHoursSpecification: SITE_CONFIG.seo.businessHours } : { openingHours: "TODO" },
+					...SITE_CONFIG.seo.geo.latitude !== null && SITE_CONFIG.seo.geo.longitude !== null ? { geo: {
+						"@type": "GeoCoordinates",
+						latitude: SITE_CONFIG.seo.geo.latitude,
+						longitude: SITE_CONFIG.seo.geo.longitude
+					} } : { geo: "TODO" },
+					...SITE_CONFIG.seo.serviceRadiusKm !== null ? { areaServed: `${SITE_CONFIG.seo.serviceRadiusKm} km radius` } : { areaServed: "TODO" },
+					sameAs: []
+				})
+			},
+			{
+				type: "application/ld+json",
+				children: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					name: SITE_CONFIG.name,
+					legalName: SITE_CONFIG.parentCompany,
+					url: CANONICAL_URL,
+					logo: "/favicon.svg",
+					email: SITE_CONFIG.email,
+					telephone: SITE_CONFIG.primaryPhone.display,
+					address: {
+						"@type": "PostalAddress",
+						streetAddress: "Rajula Tallavalasa, Near Thirumala College, Bheemunipatnam",
+						addressLocality: "Visakhapatnam",
+						addressRegion: "Andhra Pradesh",
+						postalCode: "531162",
+						addressCountry: "IN"
+					},
+					sameAs: SITE_CONFIG.seo.googleReviewsUrl ? [SITE_CONFIG.seo.googleReviewsUrl] : []
+				})
+			},
+			{
+				type: "application/ld+json",
+				children: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "ItemList",
+					name: "Windows Plaza Product Categories",
+					itemListElement: [
+						{
+							"@type": "Product",
+							name: "uPVC Windows",
+							category: "Windows",
+							brand: SITE_CONFIG.name
+						},
+						{
+							"@type": "Product",
+							name: "uPVC Doors",
+							category: "Doors",
+							brand: SITE_CONFIG.name
+						},
+						{
+							"@type": "Product",
+							name: "PVC Doors",
+							category: "Interiors",
+							brand: SITE_CONFIG.name
+						}
+					]
+				})
+			}
+		]
 	}),
 	shellComponent: RootShell,
 	component: RootComponent,
@@ -669,7 +720,7 @@ var Route$6 = createFileRoute("/sitemap.xml")({ server: { handlers: { GET: async
 		"Cache-Control": "public, max-age=3600"
 	} });
 } } } });
-var $$splitComponentImporter$5 = () => import("./projects-CpHxdjxt.mjs");
+var $$splitComponentImporter$5 = () => import("./projects-BjpmKvYy.mjs");
 var Route$5 = createFileRoute("/projects")({
 	head: () => ({
 		meta: [
@@ -698,7 +749,7 @@ var Route$5 = createFileRoute("/projects")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./products-CUI9g22C.mjs");
+var $$splitComponentImporter$4 = () => import("./products-D0mhInZn.mjs");
 var Route$4 = createFileRoute("/products")({
 	head: () => ({
 		meta: [
@@ -727,7 +778,7 @@ var Route$4 = createFileRoute("/products")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-var $$splitComponentImporter$3 = () => import("./faq-BQRrb41A.mjs");
+var $$splitComponentImporter$3 = () => import("./faq-BDiHrH0v.mjs");
 var Route$3 = createFileRoute("/faq")({
 	head: () => ({
 		meta: [
@@ -771,7 +822,7 @@ var Route$3 = createFileRoute("/faq")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-var $$splitComponentImporter$2 = () => import("./contact-BA-d9y92.mjs");
+var $$splitComponentImporter$2 = () => import("./contact-BiPmtWS6.mjs");
 var Route$2 = createFileRoute("/contact")({
 	head: () => ({
 		meta: [
@@ -786,7 +837,7 @@ var Route$2 = createFileRoute("/contact")({
 			},
 			{
 				property: "og:description",
-				content: "A Brand of SP Builders and Traders. Free quote in 24 hours by call, WhatsApp, or site visit."
+				content: `${SITE_CONFIG.tagline}. Free quote in 24 hours by call, WhatsApp, or site visit.`
 			},
 			{
 				property: "og:url",
@@ -808,22 +859,22 @@ objectType({
 	product: stringType().min(1, "Please choose a product"),
 	message: stringType().trim().min(5, "Please add a short message").max(1e3)
 });
-var $$splitComponentImporter$1 = () => import("./about-BSg8wQVS.mjs");
+var $$splitComponentImporter$1 = () => import("./about-Djxl256P.mjs");
 var Route$1 = createFileRoute("/about")({
 	head: () => ({
 		meta: [
-			{ title: "About WINDOWS PLAZA — A Brand of SP Builders and Traders" },
+			{ title: `About ${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}` },
 			{
 				name: "description",
-				content: "Learn how WINDOWS PLAZA, the dedicated uPVC windows and doors brand of SP Builders and Traders, manufactures and installs premium uPVC windows, uPVC doors and PVC doors."
+				content: `Learn how ${SITE_CONFIG.name}, ${SITE_CONFIG.tagline.toLowerCase()}, manufactures and installs premium uPVC windows, uPVC doors and PVC doors.`
 			},
 			{
 				property: "og:title",
-				content: "About WINDOWS PLAZA — Premium uPVC Windows and Doors"
+				content: `About ${SITE_CONFIG.name} — Premium uPVC Windows and Doors`
 			},
 			{
 				property: "og:description",
-				content: "WINDOWS PLAZA is the customer-facing brand backed by SP Builders and Traders, focused on premium uPVC and PVC door and window solutions."
+				content: `${SITE_CONFIG.name} is the customer-facing unit backed by ${SITE_CONFIG.parentCompany}, focused on premium uPVC and PVC door and window solutions.`
 			},
 			{
 				property: "og:url",
@@ -837,7 +888,7 @@ var Route$1 = createFileRoute("/about")({
 	}),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-CytdHfrf.mjs");
+var $$splitComponentImporter = () => import("./routes-BjyYQGDa.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({
 		meta: [

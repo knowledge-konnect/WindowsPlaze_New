@@ -1,6 +1,7 @@
 import { BrandMark } from "@/components/common/BrandMark";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/layout/Container";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -41,13 +42,13 @@ export function Navbar() {
         )}
       >
         <Link to="/" className="shrink-0 inline-flex items-center gap-2 md:gap-2.5" aria-label="Windows Plaza home">
-          <BrandMark className="size-9 md:size-11" />
+          <BrandMark className="size-11 md:size-14" onDark />
           <span>
             <span className="block text-[0.72rem] md:text-sm font-semibold tracking-[0.14em] md:tracking-[0.18em] uppercase text-white">
-              WINDOWS PLAZA
+              {SITE_CONFIG.name}
             </span>
             <span className="hidden sm:block text-[0.65rem] font-medium text-white/80 leading-tight">
-              Premium uPVC Windows & Doors
+              {SITE_CONFIG.headline}
             </span>
           </span>
         </Link>
@@ -71,7 +72,7 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+918341166268"
+            href={SITE_CONFIG.primaryPhone.href}
             className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3.5 py-2 text-sm font-medium text-white shadow-[var(--shadow-soft)] hover:border-white/55 hover:bg-white/16 transition-colors"
           >
             <Phone className="size-4" /> Call Now
@@ -127,7 +128,7 @@ export function Navbar() {
                 </Link>
               </Button>
               <a
-                href="tel:+918341166268"
+                href={SITE_CONFIG.primaryPhone.href}
                 className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/50 bg-transparent px-3.5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
               >
                 <Phone className="size-4" /> Call Now

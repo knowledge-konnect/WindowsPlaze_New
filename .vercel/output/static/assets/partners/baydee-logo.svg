@@ -1,0 +1,10 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Baydee uPVC Profiles">
+  <rect width="420" height="120" rx="12" fill="#FFFFFF"/>
+  <rect x="18" y="18" width="84" height="84" rx="3" fill="#007E62"/>
+  <rect x="26" y="32" width="68" height="9" fill="#FFFFFF"/>
+  <rect x="26" y="46" width="68" height="48" fill="#0A0A0A"/>
+  <path d="M34 85L48 53H59L45 85H34Z" fill="#2B2B2B"/>
+  <path d="M57 53H70L83 85H72L69 78H58L55 85H44L57 53ZM63.5 63L60.5 71H66.5L63.5 63Z" fill="#1E1E1E"/>
+  <text x="116" y="64" fill="#0B0B0B" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="1.2">BAYDEE</text>
+  <text x="118" y="93" fill="#0B0B0B" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2.2">UPVC PROFILES</text>
+</svg>

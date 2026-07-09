@@ -1,13 +1,14 @@
 import { o as __toESM } from "../_runtime.mjs";
+import { n as whatsAppUrl, t as SITE_CONFIG } from "./siteConfig-DryuP_nf.mjs";
 import { n as useForm, r as require_react, t as a } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { C as LoaderCircle, F as Clock, L as CircleCheck, S as Mail, _ as Phone, k as Factory, m as Send, x as MapPin, y as MessageCircle } from "../_libs/lucide-react.mjs";
+import { C as LoaderCircle, I as CircleCheck, P as Clock, S as Mail, _ as Phone, k as Factory, m as Send, x as MapPin, y as MessageCircle } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
-import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { t as SectionHeading } from "./SectionHeading-CcaGgn-G.mjs";
 import { n as toast } from "../_libs/sonner.mjs";
 import { n as stringType, t as objectType } from "../_libs/zod.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/contact-BA-d9y92.js
+//#region node_modules/.nitro/vite/services/ssr/assets/contact-BiPmtWS6.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var PRODUCTS = [
@@ -17,7 +18,6 @@ var PRODUCTS = [
 	"PVC Bedroom Doors",
 	"Not sure yet"
 ];
-var WHATSAPP_NUMBER = "918341166268";
 var contactSchema = objectType({
 	name: stringType().trim().min(2, "Please enter your name").max(100),
 	phone: stringType().trim().min(7, "Please enter a valid phone number").max(20, "Phone number too long").regex(/^[+\d\s\-()]+$/, "Only digits, spaces and + - ( ) allowed"),
@@ -68,8 +68,7 @@ function ContactPage() {
 			v.product && `Interested in: ${v.product}`,
 			v.message && `Details: ${v.message}`
 		].filter(Boolean);
-		const text = encodeURIComponent(lines.join("\n"));
-		window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener");
+		window.open(whatsAppUrl(lines.join("\n")), "_blank", "noopener");
 	};
 	const inputCls = "h-11 w-full rounded-xl border border-border bg-background px-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-colors";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
@@ -82,7 +81,7 @@ function ContactPage() {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "mt-4 text-xs font-semibold tracking-[0.2em] uppercase text-accent",
-					children: "A Brand of SP Builders and Traders"
+					children: SITE_CONFIG.tagline
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed",
@@ -161,7 +160,7 @@ function ContactPage() {
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 								id: "c-phone",
 								className: inputCls,
-								placeholder: "+91 8341166268",
+								placeholder: SITE_CONFIG.phones[1].display,
 								inputMode: "tel",
 								autoComplete: "tel",
 								maxLength: 20,
@@ -191,7 +190,7 @@ function ContactPage() {
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 								id: "c-city",
 								className: inputCls,
-								placeholder: "e.g. Bengaluru",
+								placeholder: "e.g. Visakhapatnam",
 								autoComplete: "address-level2",
 								maxLength: 80,
 								"aria-invalid": !!errors.city,
@@ -258,40 +257,29 @@ function ContactPage() {
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
 						className: "space-y-5",
 						children: [
-							{
+							...SITE_CONFIG.phones.map((phone, index) => ({
 								icon: Phone,
-								label: "Phone 1",
-								value: "+91 9876543210",
-								href: "tel:+919876543210"
-							},
-							{
-								icon: Phone,
-								label: "Phone 2",
-								value: "+91 8765432109",
-								href: "tel:+918765432109"
-							},
-							{
-								icon: Phone,
-								label: "Phone 3",
-								value: "+91 8341166268",
-								href: "tel:+918341166268"
-							},
+								label: `Phone ${index + 1}`,
+								value: phone.display,
+								href: phone.href
+							})),
 							{
 								icon: MessageCircle,
 								label: "WhatsApp",
-								value: "+91 8341166268",
-								href: "https://wa.me/918341166268"
+								value: SITE_CONFIG.whatsapp.display,
+								href: whatsAppUrl()
 							},
 							{
 								icon: Mail,
 								label: "Email",
-								value: "hello@windowsplaza.in",
-								href: "mailto:hello@windowsplaza.in"
+								value: SITE_CONFIG.email,
+								href: `mailto:${SITE_CONFIG.email}`
 							},
 							{
 								icon: Factory,
 								label: "Factory address",
-								value: "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162"
+								value: SITE_CONFIG.address.full,
+								href: SITE_CONFIG.address.mapsUrl
 							}
 						].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
 							className: "flex items-start gap-3",
@@ -350,51 +338,25 @@ function ContactPage() {
 				description: "Walk our factory floor, see how your windows are made, and meet the team behind them."
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "relative rounded-xl overflow-hidden border border-border shadow-[var(--shadow-soft)] aspect-video bg-section",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "absolute inset-0 grid place-items-center",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "text-center",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "inline-flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, { className: "size-6" })
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "text-lg font-semibold text-foreground",
-								children: "SP Builders and Traders"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
-								className: "mt-1 text-sm text-muted-foreground max-w-md mx-auto",
-								children: [
-									"Rajula Tallavalasa, Tallavalasa,",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-									"Near Thirumala College,",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-									"Bheemunipatnam,",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-									"Visakhapatnam,",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-									"Andhra Pradesh – 531162"
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-								href: "https://maps.google.com/?q=Rajula+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162",
-								target: "_blank",
-								rel: "noreferrer",
-								className: "mt-5 inline-flex",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
-									variant: "secondary",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {}), " Open in Google Maps"]
-								})
-							})
-						]
-					})
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("iframe", {
+					title: `${SITE_CONFIG.name} location on Google Maps`,
+					src: SITE_CONFIG.address.mapsEmbedUrl,
+					className: "absolute inset-0 h-full w-full border-0",
+					loading: "lazy",
+					referrerPolicy: "no-referrer-when-downgrade",
+					allowFullScreen: true
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "absolute inset-0 opacity-[0.08] pointer-events-none",
-					style: {
-						backgroundImage: "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-						backgroundSize: "40px 40px"
-					}
+					className: "absolute bottom-4 right-4",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						href: SITE_CONFIG.address.mapsUrl,
+						target: "_blank",
+						rel: "noreferrer",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button, {
+							variant: "secondary",
+							size: "sm",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MapPin, {}), " Open in Google Maps"]
+						})
+					})
 				})]
 			})] })
 		})

@@ -1,7 +1,7 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { a as Trigger2, c as require_jsx_runtime, i as Root2, n as Header, r as Item, t as Content2 } from "../_libs/@radix-ui/react-accordion+[...].mjs";
-import { R as ChevronDown } from "../_libs/lucide-react.mjs";
+import { L as ChevronDown } from "../_libs/lucide-react.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/FAQAccordion-C-f6AFUr.js
 var import_react = /* @__PURE__ */ __toESM(require_react());

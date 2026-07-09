@@ -3,7 +3,7 @@ import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { a as useMotionValue, i as useTransform, n as animate, s as motion, t as useInView } from "../_libs/framer-motion.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/StatisticsCard-DenOCVQL.js
+//#region node_modules/.nitro/vite/services/ssr/assets/StatisticsCard-DGHj598R.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var hero_home_default = "/assets/hero-home-BTnqyeRO.jpg";
@@ -74,7 +74,7 @@ function StatisticsCard({ value, suffix = "+", label, icon: Icon, className }) {
 		},
 		viewport: { once: true },
 		transition: { duration: .5 },
-		className: cn("h-full md:min-h-[220px] bg-card rounded-xl border border-border/90 p-6 md:p-8 text-center shadow-[var(--shadow-soft)] hover-lift", className),
+		className: cn("h-full md:min-h-[220px] bg-card rounded-xl border border-border/90 p-6 md:p-8 text-center shadow-[var(--shadow-soft)] hover-lift hover:scale-[1.01]", className),
 		children: [
 			Icon && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "inline-flex size-11 items-center justify-center rounded-[12px] bg-primary/10 text-primary mb-4",

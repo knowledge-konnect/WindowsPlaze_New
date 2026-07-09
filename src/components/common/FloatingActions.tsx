@@ -1,9 +1,7 @@
+import { SITE_CONFIG, whatsAppUrl } from "@/lib/siteConfig";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowUp, MessageCircle, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const WHATSAPP_NUMBER = "918341166268";
-const PHONE_NUMBER = "+918341166268";
 
 export function FloatingActions() {
   const { scrollYProgress } = useScroll();
@@ -19,14 +17,12 @@ export function FloatingActions() {
 
   return (
     <>
-      {/* Scroll progress bar */}
       <motion.div
         aria-hidden="true"
         style={{ scaleX }}
         className="fixed top-0 left-0 right-0 z-[60] h-0.5 bg-primary origin-left"
       />
 
-      {/* Floating side actions (desktop + mobile) */}
       <div className="fixed z-40 right-4 md:right-6 bottom-4 md:bottom-6 hidden md:flex flex-col items-end gap-3">
         {showTop && (
           <button
@@ -40,9 +36,7 @@ export function FloatingActions() {
         )}
 
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-            "Hi! I'd like to get a quote for uPVC windows or doors.",
-          )}`}
+          href={whatsAppUrl()}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat with us on WhatsApp"
@@ -50,21 +44,26 @@ export function FloatingActions() {
         >
           <MessageCircle className="size-6" />
         </a>
+
+        <a
+          href={SITE_CONFIG.primaryPhone.href}
+          aria-label="Call us"
+          className="inline-flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
+        >
+          <Phone className="size-6" />
+        </a>
       </div>
 
-      {/* Mobile floating call + WhatsApp */}
-      <div className="fixed z-40 right-3 bottom-3 flex items-center gap-2 md:hidden">
+      <div className="fixed z-40 right-3 md:right-4 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] flex items-center gap-2 md:hidden">
         <a
-          href={`tel:${PHONE_NUMBER}`}
+          href={SITE_CONFIG.primaryPhone.href}
           aria-label="Call us"
           className="inline-flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-elevated)] hover:scale-105 transition-transform"
         >
           <Phone className="size-5" />
         </a>
         <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-            "Hi! I'd like to get a quote for uPVC windows or doors.",
-          )}`}
+          href={whatsAppUrl()}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat with us on WhatsApp"

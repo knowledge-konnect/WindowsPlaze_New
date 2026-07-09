@@ -1,4 +1,5 @@
 import { Button, Container, Section, SectionHeading } from "@/components";
+import { SITE_CONFIG, whatsAppUrl } from "@/lib/siteConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/contact")({
       {
         property: "og:description",
         content:
-          "A Brand of SP Builders and Traders. Free quote in 24 hours by call, WhatsApp, or site visit.",
+          `${SITE_CONFIG.tagline}. Free quote in 24 hours by call, WhatsApp, or site visit.`,
       },
       { property: "og:url", content: "/contact" },
     ],
@@ -47,8 +48,6 @@ const PRODUCTS = [
   "PVC Bedroom Doors",
   "Not sure yet",
 ];
-
-const WHATSAPP_NUMBER = "918341166268";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
@@ -114,8 +113,7 @@ function ContactPage() {
       v.product && `Interested in: ${v.product}`,
       v.message && `Details: ${v.message}`,
     ].filter(Boolean);
-    const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener");
+    window.open(whatsAppUrl(lines.join("\n")), "_blank", "noopener");
   };
 
   const inputCls =
@@ -130,7 +128,7 @@ function ContactPage() {
             Contact Windows Plaza
           </h1>
           <p className="mt-4 text-xs font-semibold tracking-[0.2em] uppercase text-accent">
-            A Brand of SP Builders and Traders
+            {SITE_CONFIG.tagline}
           </p>
           <p className="mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Tell us a little about your project — our team will get back to you with a free quote,
@@ -196,7 +194,7 @@ function ContactPage() {
                     <input
                       id="c-phone"
                       className={inputCls}
-                      placeholder="+91 8341166268"
+                      placeholder={SITE_CONFIG.phones[1].display}
                       inputMode="tel"
                       autoComplete="tel"
                       maxLength={20}
@@ -220,7 +218,7 @@ function ContactPage() {
                     <input
                       id="c-city"
                       className={inputCls}
-                      placeholder="e.g. Bengaluru"
+                      placeholder="e.g. Visakhapatnam"
                       autoComplete="address-level2"
                       maxLength={80}
                       aria-invalid={!!errors.city}
@@ -288,41 +286,29 @@ function ContactPage() {
                 <h3 className="text-lg font-semibold text-foreground mb-6">Business details</h3>
                 <ul className="space-y-5">
                   {[
-                    {
+                    ...SITE_CONFIG.phones.map((phone, index) => ({
                       icon: Phone,
-                      label: "Phone 1",
-                      value: "+91 9876543210",
-                      href: "tel:+919876543210",
-                    },
-                    {
-                      icon: Phone,
-                      label: "Phone 2",
-                      value: "+91 8765432109",
-                      href: "tel:+918765432109",
-                    },
-                    {
-                      icon: Phone,
-                      label: "Phone 3",
-                      value: "+91 8341166268",
-                      href: "tel:+918341166268",
-                    },
+                      label: `Phone ${index + 1}`,
+                      value: phone.display,
+                      href: phone.href,
+                    })),
                     {
                       icon: MessageCircle,
                       label: "WhatsApp",
-                      value: "+91 8341166268",
-                      href: "https://wa.me/918341166268",
+                      value: SITE_CONFIG.whatsapp.display,
+                      href: whatsAppUrl(),
                     },
                     {
                       icon: Mail,
                       label: "Email",
-                      value: "hello@windowsplaza.in",
-                      href: "mailto:hello@windowsplaza.in",
+                      value: SITE_CONFIG.email,
+                      href: `mailto:${SITE_CONFIG.email}`,
                     },
                     {
                       icon: Factory,
                       label: "Factory address",
-                      value:
-                        "Rajula Tallavalasa, Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162",
+                      value: SITE_CONFIG.address.full,
+                      href: SITE_CONFIG.address.mapsUrl,
                     },
                   ].map((item) => (
                     <li key={item.label} className="flex items-start gap-3">
@@ -386,46 +372,21 @@ function ContactPage() {
             description="Walk our factory floor, see how your windows are made, and meet the team behind them."
           />
           <div className="relative rounded-xl overflow-hidden border border-border shadow-[var(--shadow-soft)] aspect-video bg-section">
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="text-center">
-                <span className="inline-flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
-                  <MapPin className="size-6" />
-                </span>
-                <p className="text-lg font-semibold text-foreground">
-                  SP Builders and Traders
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground max-w-md mx-auto">
-                  Rajula Tallavalasa, Tallavalasa,
-                  <br />
-                  Near Thirumala College,
-                  <br />
-                  Bheemunipatnam,
-                  <br />
-                  Visakhapatnam,
-                  <br />
-                  Andhra Pradesh – 531162
-                </p>
-                <a
-                  href="https://maps.google.com/?q=Rajula+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-5 inline-flex"
-                >
-                  <Button variant="secondary">
-                    <MapPin /> Open in Google Maps
-                  </Button>
-                </a>
-              </div>
-            </div>
-            {/* subtle map-like pattern */}
-            <div
-              className="absolute inset-0 opacity-[0.08] pointer-events-none"
-              style={{
-                backgroundImage:
-                  "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-                backgroundSize: "40px 40px",
-              }}
+            <iframe
+              title={`${SITE_CONFIG.name} location on Google Maps`}
+              src={SITE_CONFIG.address.mapsEmbedUrl}
+              className="absolute inset-0 h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
+            <div className="absolute bottom-4 right-4">
+              <a href={SITE_CONFIG.address.mapsUrl} target="_blank" rel="noreferrer">
+                <Button variant="secondary" size="sm">
+                  <MapPin /> Open in Google Maps
+                </Button>
+              </a>
+            </div>
           </div>
         </Container>
       </Section>

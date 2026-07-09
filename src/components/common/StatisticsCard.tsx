@@ -38,7 +38,7 @@ export function StatisticsCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "h-full md:min-h-[220px] bg-card rounded-xl border border-border/90 p-6 md:p-8 text-center shadow-[var(--shadow-soft)] hover-lift",
+        "h-full md:min-h-[220px] bg-card rounded-xl border border-border/90 p-6 md:p-8 text-center shadow-[var(--shadow-soft)] hover-lift hover:scale-[1.01]",
         className,
       )}
     >

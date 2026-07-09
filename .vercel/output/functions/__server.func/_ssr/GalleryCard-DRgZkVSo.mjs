@@ -2,7 +2,7 @@ import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[..
 import { s as motion } from "../_libs/framer-motion.mjs";
 import { j as Expand } from "../_libs/lucide-react.mjs";
 import { i as cn } from "./Button-pr5z-nGg.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/GalleryCard-Dh0NbFkq.js
+//#region node_modules/.nitro/vite/services/ssr/assets/GalleryCard-DRgZkVSo.js
 var import_jsx_runtime = require_jsx_runtime();
 function GalleryCard({ image, title, tag, onClick, className }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.button, {
@@ -29,6 +29,8 @@ function GalleryCard({ image, title, tag, onClick, className }) {
 					src: image,
 					alt: title ?? "Gallery item",
 					loading: "lazy",
+					decoding: "async",
+					sizes: "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
 					className: "h-full w-full object-cover"
 				})
 			}),

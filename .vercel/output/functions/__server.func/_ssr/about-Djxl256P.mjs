@@ -1,12 +1,13 @@
+import { t as SITE_CONFIG } from "./siteConfig-DryuP_nf.mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { A as Eye, B as CalendarDays, G as ArrowRight, H as Award, I as ClipboardCheck, N as Cog, O as Gem, T as House, f as ShieldCheck, k as Factory, l as Target, s as Users, w as Leaf, y as MessageCircle } from "../_libs/lucide-react.mjs";
+import { A as Eye, B as Award, F as ClipboardCheck, M as Cog, O as Gem, T as House, U as ArrowRight, f as ShieldCheck, k as Factory, l as Target, s as Users, w as Leaf, y as MessageCircle, z as CalendarDays } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
 import { t as gallery_3_default } from "./gallery-3-GSB_2Cl4.mjs";
-import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DenOCVQL.mjs";
-import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DGHj598R.mjs";
+import { t as SectionHeading } from "./SectionHeading-CcaGgn-G.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/about-BSg8wQVS.js
+//#region node_modules/.nitro/vite/services/ssr/assets/about-Djxl256P.js
 var import_jsx_runtime = require_jsx_runtime();
 var STATS = [
 	{
@@ -110,7 +111,7 @@ function AboutPage() {
 							delay: .05
 						},
 						className: "mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white max-w-3xl leading-[1.1]",
-						children: "The dedicated uPVC windows and doors brand of SP Builders and Traders."
+						children: SITE_CONFIG.tagline
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
 						initial: {
@@ -167,8 +168,19 @@ function AboutPage() {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "mt-6 max-w-2xl space-y-4 text-muted-foreground leading-relaxed",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "WINDOWS PLAZA is the dedicated uPVC windows and doors brand of SP Builders and Traders, created to provide specialized fenestration solutions with a premium, customer-first experience." }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "SP Builders and Traders is an established company committed to delivering premium building solutions across residential and commercial projects. That legacy of quality and accountability forms the foundation behind WINDOWS PLAZA." }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							SITE_CONFIG.name,
+							" is the dedicated uPVC windows and doors unit of",
+							" ",
+							SITE_CONFIG.parentCompany,
+							", created to provide specialized fenestration solutions with a premium, customer-first experience."
+						] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							SITE_CONFIG.parentCompany,
+							" is an established company committed to delivering premium building solutions across residential and commercial projects. That legacy of quality and accountability forms the foundation behind ",
+							SITE_CONFIG.name,
+							"."
+						] }),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "At WINDOWS PLAZA, our team specializes in manufacturing and installing high-quality uPVC Windows, uPVC Doors, and PVC Doors engineered for modern homes and performance-driven commercial developments." })
 					]
 				})

@@ -29,6 +29,7 @@ export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
 });
 
+// TODO: Replace stock gallery images with real installation photos from Windows Plaza projects.
 const PROJECTS = [
   { image: g1, title: "Willow Lane Residence", tag: "Villa · Bengaluru" },
   { image: g2, title: "Sunlit Kitchen Retreat", tag: "Interior · Mumbai" },

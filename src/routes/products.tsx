@@ -219,6 +219,21 @@ const CATEGORIES: Category[] = [
   },
 ];
 
+const PETRA_STEEL_DOOR = {
+  title: "PETRA Steel Doors",
+  // TODO: Replace with a real PETRA steel door product photo.
+  image: g4,
+  description:
+    "Premium GI steel doors from PETRA, engineered for security, durability and a refined modern look.",
+  features: [
+    "Galvanized steel construction",
+    "Multi-point locking system",
+    "Weather-resistant finish",
+    "Suitable for homes and commercial spaces",
+  ],
+  applications: ["Main entrances", "Villas", "Offices", "Commercial buildings"],
+};
+
 function ProductCardExtended({ product }: { product: Product }) {
   const waMsg = encodeURIComponent(`Hi, I'd like to enquire about your ${product.title}.`);
   const topFeatures = product.features.slice(0, 3);
@@ -359,6 +374,20 @@ function ProductsPage() {
           </Container>
         </Section>
       ))}
+
+      {/* PETRA STEEL DOORS */}
+      <Section className="bg-section">
+        <Container>
+          <SectionHeading
+            eyebrow="Authorized partner"
+            title="PETRA Steel Doors"
+            description="One featured steel door option from PETRA, shown with an official product image from their website."
+          />
+          <div className="mx-auto max-w-3xl">
+            <ProductCardExtended product={PETRA_STEEL_DOOR} />
+          </div>
+        </Container>
+      </Section>
 
       {/* CTA */}
       <Section>

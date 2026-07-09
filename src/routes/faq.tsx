@@ -108,11 +108,6 @@ const FAQS = [
     answer:
       "uPVC doors are used for external openings — main entrances, balconies, patios — where strength and weather-tightness matter. PVC doors are lighter interior doors, ideal for bathrooms, bedrooms and utility spaces where water resistance is key.",
   },
-  {
-    question: "Do you offer financing or EMI options?",
-    answer:
-      "Yes — we partner with leading NBFCs to offer no-cost EMI on qualifying orders. Speak to your project consultant for the latest offers in your city.",
-  },
 ];
 
 function FAQPage() {

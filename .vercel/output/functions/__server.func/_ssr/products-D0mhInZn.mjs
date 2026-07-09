@@ -2,13 +2,13 @@ import { o as __toESM } from "../_runtime.mjs";
 import { r as require_react } from "../_libs/@hookform/resolvers+[...].mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { G as ArrowRight, y as MessageCircle, z as Check } from "../_libs/lucide-react.mjs";
+import { R as Check, U as ArrowRight, y as MessageCircle } from "../_libs/lucide-react.mjs";
 import { n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
-import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { t as SectionHeading } from "./SectionHeading-CcaGgn-G.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as gallery_6_default, i as gallery_5_default, n as gallery_2_default, r as gallery_4_default, t as gallery_1_default } from "./gallery-6-B3HHaU8a.mjs";
 import { n as product_upvc_door_default, r as product_upvc_window_default, t as product_pvc_door_default } from "./product-upvc-window-B9nSMe6t.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/products-CUI9g22C.js
+//#region node_modules/.nitro/vite/services/ssr/assets/products-D0mhInZn.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var CATEGORIES = [

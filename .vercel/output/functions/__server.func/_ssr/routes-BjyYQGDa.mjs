@@ -1,16 +1,17 @@
+import { n as whatsAppUrl, t as SITE_CONFIG } from "./siteConfig-DryuP_nf.mjs";
 import { c as require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { s as motion } from "../_libs/framer-motion.mjs";
-import { B as CalendarDays, D as HardHat, E as Headphones, G as ArrowRight, H as Award, I as ClipboardCheck, M as Droplets, N as Cog, O as Gem, P as CloudRain, T as House, V as Bug, W as ArrowUpRight, a as VolumeX, c as Truck, d as Sparkles, f as ShieldCheck, g as Quote, h as Ruler, i as Wind, k as Factory, o as Volume2, p as Settings2, r as Wrench, s as Users, t as Zap, u as Star, v as PhoneCall, w as Leaf, y as MessageCircle, z as Check } from "../_libs/lucide-react.mjs";
+import { B as Award, D as HardHat, E as Headphones, F as ClipboardCheck, H as ArrowUpRight, M as Cog, N as CloudRain, O as Gem, R as Check, T as House, U as ArrowRight, a as VolumeX, c as Truck, d as Sparkles, f as ShieldCheck, g as Quote, h as Ruler, i as Wind, k as Factory, o as Volume2, p as Settings2, r as Wrench, s as Users, t as Zap, u as Star, v as PhoneCall, w as Leaf, y as MessageCircle, z as CalendarDays } from "../_libs/lucide-react.mjs";
 import { i as cn, n as Container, r as Section, t as Button } from "./Button-pr5z-nGg.mjs";
 import { t as gallery_3_default } from "./gallery-3-GSB_2Cl4.mjs";
-import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DenOCVQL.mjs";
-import { t as SectionHeading } from "./SectionHeading-tv2hhjRs.mjs";
+import { n as StatisticsCard, r as hero_home_default, t as FeatureCard } from "./StatisticsCard-DGHj598R.mjs";
+import { t as SectionHeading } from "./SectionHeading-CcaGgn-G.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as FAQAccordion } from "./FAQAccordion-C-f6AFUr.mjs";
 import { a as gallery_6_default, i as gallery_5_default, n as gallery_2_default, r as gallery_4_default, t as gallery_1_default } from "./gallery-6-B3HHaU8a.mjs";
 import { n as product_upvc_door_default, r as product_upvc_window_default, t as product_pvc_door_default } from "./product-upvc-window-B9nSMe6t.mjs";
-import { t as GalleryCard } from "./GalleryCard-Dh0NbFkq.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CytdHfrf.js
+import { t as GalleryCard } from "./GalleryCard-DRgZkVSo.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-BjyYQGDa.js
 var import_jsx_runtime = require_jsx_runtime();
 function ProductCard({ title, category, description, image, href = "#", className }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
@@ -37,7 +38,9 @@ function ProductCard({ title, category, description, image, href = "#", classNam
 					src: image,
 					alt: title,
 					className: "h-full w-full object-cover",
-					loading: "lazy"
+					loading: "lazy",
+					decoding: "async",
+					sizes: "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "p-6",
@@ -132,16 +135,16 @@ var HERO_HIGHLIGHTS = [
 ];
 var STATS = [
 	{
-		icon: CalendarDays,
-		value: 2,
-		suffix: "",
-		label: "Years of Operations"
-	},
-	{
 		icon: House,
 		value: 32,
 		suffix: "+",
 		label: "Projects Completed"
+	},
+	{
+		icon: Award,
+		value: 320,
+		suffix: "+",
+		label: "Windows & Doors Installed"
 	},
 	{
 		icon: Users,
@@ -150,10 +153,10 @@ var STATS = [
 		label: "Happy Customers"
 	},
 	{
-		icon: Award,
-		value: 320,
+		icon: CalendarDays,
+		value: 2,
 		suffix: "+",
-		label: "Windows Installed"
+		label: "Years Experience"
 	}
 ];
 var WHY_US = [
@@ -217,27 +220,27 @@ var BENEFITS = [
 	{
 		icon: Wind,
 		title: "Dust Resistant",
-		description: "EPDM gaskets and multi-point locks form an airtight seal against dust and pollen."
+		description: "EPDM gaskets and multi-point locks keep dust and grime out."
 	},
 	{
 		icon: Zap,
-		title: "Energy Saving",
-		description: "Thermally insulated frames cut cooling and heating loads by up to 30% year-round."
+		title: "Energy Efficient",
+		description: "Thermally insulated frames cut cooling and heating loads by up to 30%."
 	},
 	{
-		icon: Droplets,
-		title: "100% Waterproof",
-		description: "Engineered drainage and welded corners keep monsoon rain firmly on the outside."
-	},
-	{
-		icon: Bug,
-		title: "Termite Proof",
-		description: "uPVC is inorganic — termites, borers and fungus can't touch it, ever."
+		icon: CloudRain,
+		title: "Weather Resistant",
+		description: "UV-stable, corrosion-proof profiles built for coastal Andhra Pradesh climate."
 	},
 	{
 		icon: Wrench,
 		title: "Low Maintenance",
-		description: "No painting, polishing or sealing. A soft cloth and mild soap keep them factory-fresh."
+		description: "No painting, no polishing — a quick wipe keeps them looking new for years."
+	},
+	{
+		icon: ShieldCheck,
+		title: "Enhanced Security",
+		description: "Multi-point locking systems and reinforced frames for added peace of mind."
 	}
 ];
 var PROCESS = [
@@ -381,11 +384,11 @@ function Home() {
 					loading: "eager",
 					decoding: "async",
 					className: "h-full w-full object-cover object-[66%_center] md:object-center"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[#084A85]/[0.38] md:bg-[#084A85]/[0.30]" })]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-[#084A85]/[0.48] md:bg-[#084A85]/[0.42]" })]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, {
 				className: "relative py-10 sm:py-12 md:py-32 lg:py-40",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "max-w-2xl",
+					className: "max-w-3xl",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.span, {
 							initial: {
@@ -398,9 +401,9 @@ function Home() {
 							},
 							transition: { duration: .5 },
 							className: "inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 backdrop-blur px-3 py-1 text-[11px] sm:px-4 sm:py-1.5 sm:text-xs font-medium text-white",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "size-1.5 rounded-full bg-white" }), "WINDOWS PLAZA"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "size-1.5 rounded-full bg-white" }), SITE_CONFIG.name]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.h1, {
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.h1, {
 							initial: {
 								opacity: 0,
 								y: 20
@@ -413,30 +416,26 @@ function Home() {
 								duration: .7,
 								delay: .05
 							},
-							className: "mt-4 sm:mt-6 text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] tracking-[-0.02em] text-white leading-[1.02]",
-							children: [
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "block",
-									children: "WINDOWS PLAZA"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "mt-2 md:mt-3 block text-sm sm:text-lg md:text-xl lg:text-2xl font-medium tracking-normal text-white/85",
-									children: "A Brand of SP Builders and Traders"
-								}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-									className: "mt-3 md:mt-4 block text-2xl sm:text-5xl md:text-6xl lg:text-[4.5rem] tracking-[-0.02em] leading-[1.08]",
-									children: [
-										"Premium uPVC Windows & ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", {
-											className: "not-italic text-white/90",
-											children: "PVC Doors"
-										}),
-										" for Modern Homes"
-									]
-								})
-							]
+							className: "mt-6 sm:mt-7 text-4xl sm:text-[4.15rem] md:text-[4.85rem] lg:text-[5.75rem] tracking-[-0.02em] text-white leading-[1.02]",
+							children: SITE_CONFIG.name
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.p, {
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.h2, {
+							initial: {
+								opacity: 0,
+								y: 20
+							},
+							animate: {
+								opacity: 1,
+								y: 0
+							},
+							transition: {
+								duration: .7,
+								delay: .1
+							},
+							className: "mt-4 md:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-white/95 leading-[1.1]",
+							children: SITE_CONFIG.headline
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
 							initial: {
 								opacity: 0,
 								y: 20
@@ -449,14 +448,24 @@ function Home() {
 								duration: .7,
 								delay: .15
 							},
-							className: "mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-xl leading-relaxed",
-							children: [
-								"Manufactured with precision.",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								"Installed by experts.",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								"Built to last."
-							]
+							className: "mt-4 md:mt-5 text-sm sm:text-base font-medium tracking-[0.12em] uppercase text-white/80",
+							children: SITE_CONFIG.tagline
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.p, {
+							initial: {
+								opacity: 0,
+								y: 20
+							},
+							animate: {
+								opacity: 1,
+								y: 0
+							},
+							transition: {
+								duration: .7,
+								delay: .2
+							},
+							className: "mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed",
+							children: SITE_CONFIG.subheadline
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
 							initial: {
@@ -471,10 +480,11 @@ function Home() {
 								duration: .7,
 								delay: .25
 							},
-							className: "mt-6 sm:mt-8 flex flex-wrap items-center gap-2.5 sm:gap-3",
+							className: "mt-7 sm:mt-9 flex flex-wrap items-center gap-3 sm:gap-3.5",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
 								size: "lg",
 								variant: "secondary",
+								className: "h-14 px-10 text-[1.05rem] font-semibold",
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 									to: "/contact",
@@ -485,7 +495,7 @@ function Home() {
 								variant: "whatsapp",
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									href: "https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20uPVC%20windows%20or%20doors.",
+									href: whatsAppUrl(),
 									target: "_blank",
 									rel: "noreferrer",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
@@ -504,6 +514,29 @@ function Home() {
 							transition: {
 								duration: .6,
 								delay: .3
+							},
+							className: "mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white/90",
+							"aria-label": "Free services included",
+							children: SITE_CONFIG.trustBadges.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+								className: "inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, {
+									className: "size-4 shrink-0",
+									"aria-hidden": "true"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item })]
+							}, item))
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.ul, {
+							initial: {
+								opacity: 0,
+								y: 16
+							},
+							animate: {
+								opacity: 1,
+								y: 0
+							},
+							transition: {
+								duration: .6,
+								delay: .35
 							},
 							className: "mt-4 sm:mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-white",
 							children: [
@@ -556,6 +589,30 @@ function Home() {
 			className: "grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3",
 			children: WHY_US.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeatureCard, { ...f }, f.title))
 		})] }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
+			className: "bg-section",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+				eyebrow: "Trusted partners",
+				title: "Trusted Profile & Hardware Partners",
+				description: "We source profiles and hardware from industry-leading partners for lasting performance."
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "flex flex-wrap justify-center items-center gap-6 md:gap-12",
+				children: SITE_CONFIG.partners.map((partner) => partner.logoSrc ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: partner.logoSrc,
+					alt: partner.logoAlt,
+					className: "h-16 object-contain",
+					loading: "lazy"
+				}, partner.name) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex h-16 min-w-[200px] items-center justify-center rounded-xl border border-border bg-card px-8 shadow-[var(--shadow-soft)]",
+					role: "img",
+					"aria-label": partner.logoAlt,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "text-sm font-semibold text-primary tracking-wide text-center",
+						children: partner.name
+					})
+				}, partner.name))
+			})] })
+		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
 			muted: true,
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
@@ -664,7 +721,7 @@ function Home() {
 					variant: "whatsapp",
 					asChild: true,
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-						href: "https://wa.me/918341166268?text=Hi%2C%20I%20have%20a%20question%20about%20your%20uPVC%20products.",
+						href: whatsAppUrl("Hi, I have a question about your uPVC products."),
 						target: "_blank",
 						rel: "noreferrer",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " Ask on WhatsApp"]
@@ -672,6 +729,74 @@ function Home() {
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FAQAccordion, { items: FAQS })]
 		}) }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
+			muted: true,
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+				initial: {
+					opacity: 0,
+					y: 20
+				},
+				whileInView: {
+					opacity: 1,
+					y: 0
+				},
+				viewport: {
+					once: true,
+					margin: "-60px"
+				},
+				transition: { duration: .55 },
+				className: "mx-auto max-w-lg text-center rounded-xl border border-border bg-card p-8 md:p-10 shadow-[var(--shadow-soft)]",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "text-xl font-semibold text-primary",
+						children: "Need Expert Advice?"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-3 text-lg font-medium text-foreground",
+						children: SITE_CONFIG.founder.name
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1 text-sm text-muted-foreground",
+						children: SITE_CONFIG.founder.title
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+						className: "mt-5 grid gap-2 text-sm text-muted-foreground",
+						"aria-label": "Founder consultation benefits",
+						children: [
+							"Free Measurement",
+							"Free Quotation",
+							"Professional Consultation"
+						].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							className: "inline-flex items-center justify-center gap-2",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, {
+								className: "size-4 text-primary",
+								"aria-hidden": "true"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: item })]
+						}, item))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button, {
+						className: "mt-6",
+						size: "lg",
+						asChild: true,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: SITE_CONFIG.founder.phone.href,
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PhoneCall, { className: "size-4" }), " Call Now"]
+						})
+					})
+				]
+			}) })
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+			eyebrow: "Service areas",
+			title: "We Proudly Serve",
+			description: "Premium uPVC windows and doors across coastal Andhra Pradesh and nearby districts."
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "flex flex-wrap justify-center gap-3",
+			children: SITE_CONFIG.serviceAreas.map((area) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/15",
+				children: area
+			}, area))
+		})] }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
 			className: "relative overflow-hidden",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
@@ -719,7 +844,7 @@ function Home() {
 								variant: "whatsapp",
 								asChild: true,
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									href: "https://wa.me/918341166268?text=Hi%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20project.",
+									href: whatsAppUrl("Hi, I'd like a free quote for my project."),
 									target: "_blank",
 									rel: "noreferrer",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(MessageCircle, {}), " WhatsApp Us"]
