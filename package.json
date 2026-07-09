@@ -8,6 +8,8 @@
     "build": "vite build",
     "vercel-build": "npm run build",
     "vercel:build": "npm run build",
+    "vercel:deploy": "npx vercel deploy",
+    "vercel:deploy:prod": "npx vercel deploy --prod",
     "vercel:deploy:prebuilt": "npm run vercel:build && npx vercel deploy --prebuilt",
     "vercel:deploy:prebuilt:prod": "npm run vercel:build && npx vercel deploy --prebuilt --prod",
     "build:dev": "vite build --mode development",
