@@ -1,1 +1,0 @@
-var e=`/assets/gallery-3-ChdivKwT.jpg`;export{e as t};
