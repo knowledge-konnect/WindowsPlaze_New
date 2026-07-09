@@ -42,7 +42,7 @@ export function Footer() {
           <div>
             <Link to="/" className="block">
               <div className="flex items-center gap-3">
-                <BrandMark className="size-9 md:size-11" />
+                <BrandMark className="size-9 md:size-11" onDark />
                 <span className="block text-sm font-semibold tracking-[0.18em] uppercase text-white">
                   {SITE_CONFIG.name}
                 </span>
@@ -99,12 +99,12 @@ export function Footer() {
                       src={partner.logoSrc}
                       alt={partner.logoAlt}
                       loading="lazy"
-                      className="h-9 w-auto rounded-md bg-white px-2 py-1"
+                      className="h-9 w-auto rounded-md bg-white px-2 py-1 shadow-sm ring-1 ring-black/5"
                     />
                   ) : (
                     <span
                       key={partner.name}
-                      className="inline-flex rounded-md border border-white/20 bg-white/5 px-3 py-1.5 text-xs text-white/80"
+                      className="inline-flex rounded-md border border-white/70 bg-white px-3 py-1.5 text-xs font-medium text-slate-900 shadow-sm"
                     >
                       {/* TODO: Add official partner logo asset */}
                       {partner.name}

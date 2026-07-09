@@ -39,12 +39,12 @@ export const SITE_CONFIG = {
   partners: [
     {
       name: "BAYDEE uPVC Profiles",
-      logoSrc: null as string | null,
+      logoSrc: "/assets/partners/baydee-logo.svg",
       logoAlt: "Baydee uPVC Profiles",
     },
     {
       name: "PETRA Steel Doors",
-      logoSrc: null as string | null,
+      logoSrc: "/assets/partners/petra-logo.svg",
       logoAlt: "Petra Steel Doors",
     },
   ],
