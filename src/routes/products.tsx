@@ -9,7 +9,7 @@ import windowImg from "@/assets/product-upvc-window.jpg";
 import { Button, Container, Section, SectionHeading } from "@/components";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, MessageCircle } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, ShieldCheck, Sparkles, VolumeX, Wind, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/products")({
@@ -234,6 +234,34 @@ const PETRA_STEEL_DOOR = {
   applications: ["Main entrances", "Villas", "Offices", "Commercial buildings"],
 };
 
+const WINDOW_BENEFITS = [
+  {
+    icon: VolumeX,
+    title: "Soundproof",
+    description: "Acoustic profile and quality glazing help reduce outside noise.",
+  },
+  {
+    icon: Wind,
+    title: "Dust Resistant",
+    description: "Multi-point sealing keeps dust and drafts out.",
+  },
+  {
+    icon: Zap,
+    title: "Energy Efficient",
+    description: "Insulated frames support better indoor thermal comfort.",
+  },
+  {
+    icon: Sparkles,
+    title: "Mosquito Mesh",
+    description: "Optional integrated mesh solutions for healthier airflow.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Maintenance Free",
+    description: "No polishing or repainting needed for everyday use.",
+  },
+];
+
 function ProductCardExtended({ product }: { product: Product }) {
   const waMsg = encodeURIComponent(`Hi, I'd like to enquire about your ${product.title}.`);
   const topFeatures = product.features.slice(0, 3);
@@ -245,7 +273,7 @@ function ProductCardExtended({ product }: { product: Product }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55 }}
-      className="group h-full rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] overflow-hidden transition-shadow duration-300 hover:shadow-[var(--shadow-hover)]"
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-soft)] transition-shadow duration-300 hover:shadow-[var(--shadow-hover)]"
     >
       <div className="image-zoom aspect-[4/3] bg-section">
         <img
@@ -255,7 +283,7 @@ function ProductCardExtended({ product }: { product: Product }) {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex h-full flex-col p-5 md:p-6">
+      <div className="flex flex-1 flex-col p-5 md:p-6">
         <h3 className="text-lg md:text-xl font-semibold text-foreground">{product.title}</h3>
         <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
 
@@ -341,27 +369,67 @@ function ProductsPage() {
             single team you can trust. Explore each system below.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-2">
-            {CATEGORIES.map((c) => (
-              <a
-                key={c.slug}
-                href={`#${c.slug}`}
-                className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activeCategory === c.slug
-                  ? "border-primary/40 bg-primary/10 text-primary"
-                  : "border-border bg-background text-foreground/80 hover:text-primary hover:border-primary/30"
-                  }`}
-              >
-                {c.title}
-              </a>
-            ))}
+          <div className="mt-8 rounded-xl border border-border bg-card p-2 shadow-[var(--shadow-soft)]">
+            <div className="flex flex-wrap gap-2">
+              {CATEGORIES.map((c) => (
+                <a
+                  key={c.slug}
+                  href={`#${c.slug}`}
+                  className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium transition-colors ${activeCategory === c.slug
+                    ? "border-primary/40 bg-primary/10 text-primary"
+                    : "border-border bg-background text-foreground/80 hover:text-primary hover:border-primary/30"
+                    }`}
+                >
+                  {c.title}
+                </a>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
+
+      {/* WINDOW COLOR OPTIONS */}
+      <Section>
+        <Container>
+          <SectionHeading
+            eyebrow="uPVC finishes"
+            title="uPVC Window Colors"
+            description="Colors are also available across sliding, casement, fixed and tilt-and-turn systems."
+          />
+
+          <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-center shadow-[var(--shadow-soft)] sm:p-6">
+            <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
+              Colors are available for all major window systems. Share your preference and our team
+              will suggest the best matching finish.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {WINDOW_BENEFITS.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="flex h-full flex-col rounded-xl border border-border bg-card p-4 shadow-[var(--shadow-soft)]"
+              >
+                <div className="inline-flex size-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <benefit.icon className="size-4" />
+                </div>
+                <p className="mt-3 text-sm font-semibold text-foreground">{benefit.title}</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-5 text-center text-sm text-muted-foreground">
+            Additional color finishes can be arranged on request.
+          </p>
+        </Container>
+      </Section>
 
       {CATEGORIES.map((cat, idx) => (
         <Section key={cat.slug} muted={idx % 2 === 1} className="scroll-mt-24" id={cat.slug}>
           <Container>
             <SectionHeading
+              align="left"
               eyebrow={`Category · ${idx + 1}`}
               title={cat.title}
               description={cat.intro}

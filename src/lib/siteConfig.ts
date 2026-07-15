@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   tagline: "A Unit of SP Builders & Traders",
   headline: "Premium uPVC Windows & Doors",
   subheadline: "Elegant. Secure. Energy Efficient.",
-  email: "hello@windowsplaza.in",
+  email: "contact@windowsplazaupvc.com",
   whatsapp: {
     number: "918341166268",
     display: "+91 8341166268",
@@ -17,17 +17,17 @@ export const SITE_CONFIG = {
   primaryPhone: { display: "+91 9494918231", href: "tel:+919494918231" },
   address: {
     lines: [
+      "Near Tirumala Junior College, Beside Barkat Car Garage and Car Wash",
       "Rajula Tallavalasa",
-      "Near Thirumala College",
       "Bheemunipatnam",
       "Visakhapatnam",
       "Andhra Pradesh – 531162",
     ],
-    full: "Rajula Tallavalasa, Near Thirumala College, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162",
+    full: "Near Tirumala Junior College, Beside Barkat Car Garage and Car Wash, Rajula Tallavalasa, Bheemunipatnam, Visakhapatnam, Andhra Pradesh – 531162",
     mapsUrl:
-      "https://maps.google.com/?q=Rajula+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162",
+      "https://www.google.com/maps/place/Windows+plaza+unit+of+sp+builders+and+traders/@17.9052613,83.4089324,17z",
     mapsEmbedUrl:
-      "https://www.google.com/maps?q=Rajula+Tallavalasa+Near+Thirumala+College+Bheemunipatnam+Visakhapatnam+Andhra+Pradesh+531162&output=embed",
+      "https://www.google.com/maps?q=17.9052613,83.4089324&z=17&output=embed",
   },
   founder: {
     name: "Botcha Sasi Kumar",
@@ -52,8 +52,7 @@ export const SITE_CONFIG = {
   seo: {
     // TODO: Replace with production canonical origin once domain is finalized.
     canonicalOrigin: "",
-    // TODO: Replace with exact geocoordinates from Google Maps.
-    geo: { latitude: null as number | null, longitude: null as number | null },
+    geo: { latitude: 17.9052613, longitude: 83.4089324 },
     // TODO: Add verified business hours from owner.
     businessHours: null as null | Array<{ dayOfWeek: string | string[]; opens: string; closes: string }>,
     // TODO: Add official Google Reviews profile URL.

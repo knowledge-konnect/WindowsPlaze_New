@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   Clock,
   Factory,
-  Loader2,
   Mail,
   MapPin,
   MessageCircle,
@@ -80,40 +79,32 @@ function ContactPage() {
     defaultValues: { name: "", phone: "", email: "", city: "", product: "", message: "" },
   });
 
-  const onSubmit = async (values: ContactValues) => {
-    try {
-      const existingRaw = window.localStorage.getItem("wp_quote_enquiries");
-      const parsed: unknown = existingRaw ? JSON.parse(existingRaw) : [];
-      const existing = Array.isArray(parsed) ? parsed : [];
-      const entry = { ...values, submittedAt: new Date().toISOString() };
+  const buildWhatsAppMessage = (values: Partial<ContactValues>) => {
+    return [
+      "Hi! I'd like to enquire about your products.",
+      values.name && `Name: ${values.name}`,
+      values.phone && `Phone: ${values.phone}`,
+      values.email && `Email: ${values.email}`,
+      values.city && `City: ${values.city}`,
+      values.product && `Interested in: ${values.product}`,
+      values.message && `Details: ${values.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+  };
 
-      window.localStorage.setItem("wp_quote_enquiries", JSON.stringify([entry, ...existing]));
-      setSubmitted(values);
-      reset();
+  const onSubmit = (values: ContactValues) => {
+    setSubmitted(values);
+    window.open(whatsAppUrl(buildWhatsAppMessage(values)), "_blank", "noopener");
+    reset();
 
-      toast.success("Quote form saved", {
-        description:
-          "Basic frontend form is active. Entries are saved on this device until backend is connected.",
-      });
-    } catch (err) {
-      console.error(err);
-      toast.error("Couldn't save form", {
-        description: "Please try again or use WhatsApp.",
-      });
-    }
+    toast.success("Opening WhatsApp", {
+      description: "Your enquiry details are ready to send on WhatsApp.",
+    });
   };
 
   const openWhatsApp = () => {
-    const v = getValues();
-    const lines = [
-      "Hi! I'd like to enquire about your products.",
-      v.name && `Name: ${v.name}`,
-      v.phone && `Phone: ${v.phone}`,
-      v.city && `City: ${v.city}`,
-      v.product && `Interested in: ${v.product}`,
-      v.message && `Details: ${v.message}`,
-    ].filter(Boolean);
-    window.open(whatsAppUrl(lines.join("\n")), "_blank", "noopener");
+    window.open(whatsAppUrl(buildWhatsAppMessage(getValues())), "_blank", "noopener");
   };
 
   const inputCls =
@@ -170,7 +161,7 @@ function ContactPage() {
                     Thanks, {submitted.name.split(" ")[0]}!
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    Your details are saved locally. Backend submission will be connected next.
+                    Your enquiry has been prepared in WhatsApp. Send the message there to reach our team.
                   </p>
                 </div>
               ) : (
@@ -262,18 +253,10 @@ function ContactPage() {
                   </Field>
                   <div className="sm:col-span-2 flex flex-wrap items-center gap-3 pt-2">
                     <Button type="submit" size="lg" disabled={isSubmitting}>
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="animate-spin" /> Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send enquiry <Send />
-                        </>
-                      )}
+                      <MessageCircle /> Send on WhatsApp
                     </Button>
                     <Button type="button" size="lg" variant="whatsapp" onClick={openWhatsApp}>
-                      <MessageCircle /> WhatsApp instead
+                      <Send /> Open WhatsApp
                     </Button>
                   </div>
                 </form>
