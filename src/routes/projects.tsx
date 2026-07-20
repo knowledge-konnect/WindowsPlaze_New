@@ -5,27 +5,38 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import g6 from "@/assets/gallery-6.jpg";
 import { Button, Container, GalleryCard, Section, SectionHeading } from "@/components";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects & Gallery — Recent Installations | WINDOWS PLAZA" },
-      {
-        name: "description",
-        content:
-          "Explore a curated gallery of WINDOWS PLAZA recent uPVC and PVC window and door installations — villas, apartments, and commercial spaces.",
-      },
-      { property: "og:title", content: "Projects — WINDOWS PLAZA" },
-      {
-        property: "og:description",
-        content: "A showcase of homes and buildings transformed by our windows and doors.",
-      },
-      { property: "og:url", content: "/projects" },
-    ],
-    links: [{ rel: "canonical", href: "/projects" }],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/projects`;
+
+    return {
+      meta: [
+        { title: "Projects & Gallery — Recent Installations | WINDOWS PLAZA" },
+        {
+          name: "description",
+          content:
+            "Explore a curated gallery of WINDOWS PLAZA recent uPVC and PVC window and door installations — villas, apartments, and commercial spaces.",
+        },
+        { property: "og:title", content: "Projects — WINDOWS PLAZA" },
+        {
+          property: "og:description",
+          content: "A showcase of homes and buildings transformed by our windows and doors.",
+        },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: "Projects — WINDOWS PLAZA" },
+        {
+          name: "twitter:description",
+          content: "A showcase of homes and buildings transformed by our windows and doors.",
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+    };
+  },
   component: ProjectsPage,
 });
 

@@ -14,9 +14,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import appCss from "../styles.css?url";
 
-const DEFAULT_TITLE = `${SITE_CONFIG.name} — ${SITE_CONFIG.headline}`;
-const DEFAULT_DESCRIPTION = `${SITE_CONFIG.name} manufactures and installs premium uPVC windows, uPVC doors and PVC doors for modern homes and commercial spaces. ${SITE_CONFIG.tagline}.`;
-const DEFAULT_OG_IMAGE = "/og-image.jpg";
+const DEFAULT_TITLE = `${SITE_CONFIG.name} | Premium uPVC Windows, uPVC Doors & PVC Doors`;
+const DEFAULT_DESCRIPTION = `${SITE_CONFIG.name} designs, manufactures and installs premium uPVC windows, uPVC doors and PVC doors for homes and commercial spaces across Visakhapatnam and nearby regions.`;
+const DEFAULT_OG_IMAGE = `${SITE_CONFIG.seo.canonicalOrigin}/og-image.jpg`;
 const CANONICAL_URL = SITE_CONFIG.seo.canonicalOrigin || "/";
 
 const FloatingActions = lazy(async () => ({
@@ -97,10 +97,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: DEFAULT_DESCRIPTION },
       { property: "og:url", content: CANONICAL_URL },
       { property: "og:image", content: DEFAULT_OG_IMAGE },
+      { property: "og:image:secure_url", content: DEFAULT_OG_IMAGE },
+      { property: "og:image:alt", content: "Windows Plaza premium uPVC windows and doors" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: DEFAULT_TITLE },
       { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { name: "twitter:url", content: CANONICAL_URL },
       { name: "twitter:image", content: DEFAULT_OG_IMAGE },
+      { name: "twitter:image:alt", content: "Windows Plaza premium uPVC windows and doors" },
     ],
     links: [
       { rel: "canonical", href: CANONICAL_URL },

@@ -14,6 +14,8 @@ interface SitemapEntry {
   priority?: string;
 }
 
+const PRODUCTION_BASE_URL = "https://windowsplazaupvc.com";
+
 const ENTRIES: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.8" },
@@ -26,11 +28,11 @@ const ENTRIES: SitemapEntry[] = [
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async ({ request }) => {
+      GET: async () => {
         const configured = process.env.SITE_URL;
         const baseUrl = configured
           ? normalizeBaseUrl(configured)
-          : new URL(request.url).origin.replace(/\/$/, "");
+          : PRODUCTION_BASE_URL;
 
         const urls = ENTRIES.map((e) =>
           [

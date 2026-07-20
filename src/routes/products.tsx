@@ -7,30 +7,42 @@ import pvcDoorImg from "@/assets/product-pvc-door.jpg";
 import upvcDoorImg from "@/assets/product-upvc-door.jpg";
 import windowImg from "@/assets/product-upvc-window.jpg";
 import { Button, Container, Section, SectionHeading } from "@/components";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, MessageCircle, ShieldCheck, Sparkles, VolumeX, Wind, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: "Products — uPVC Windows, uPVC Doors & PVC Doors | WINDOWS PLAZA" },
-      {
-        name: "description",
-        content:
-          "Explore WINDOWS PLAZA's complete range of uPVC windows (sliding, casement, fixed, tilt & turn), uPVC doors and PVC bathroom and designer doors.",
-      },
-      { property: "og:title", content: "Our Products — WINDOWS PLAZA" },
-      {
-        property: "og:description",
-        content:
-          "Sliding, casement, French, tilt-and-turn and more — engineered for silence, security and lifelong performance.",
-      },
-      { property: "og:url", content: "/products" },
-    ],
-    links: [{ rel: "canonical", href: "/products" }],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/products`;
+
+    return {
+      meta: [
+        { title: "Products — uPVC Windows, uPVC Doors & PVC Doors | WINDOWS PLAZA" },
+        {
+          name: "description",
+          content:
+            "Explore WINDOWS PLAZA's complete range of uPVC windows (sliding, casement, fixed, tilt & turn), uPVC doors and PVC bathroom and designer doors.",
+        },
+        { property: "og:title", content: "Our Products — WINDOWS PLAZA" },
+        {
+          property: "og:description",
+          content:
+            "Sliding, casement, French, tilt-and-turn and more — engineered for silence, security and lifelong performance.",
+        },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: "Our Products — WINDOWS PLAZA" },
+        {
+          name: "twitter:description",
+          content:
+            "Sliding, casement, French, tilt-and-turn and more — engineered for silence, security and lifelong performance.",
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+    };
+  },
   component: ProductsPage,
 });
 

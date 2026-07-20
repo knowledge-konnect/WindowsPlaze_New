@@ -2,7 +2,7 @@ import { BrandMark } from "@/components/common/BrandMark";
 import { Container } from "@/components/layout/Container";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
 const COL_LINKS = [
   {
@@ -35,6 +35,8 @@ const COL_LINKS = [
 ];
 
 export function Footer() {
+  const websiteUrl = SITE_CONFIG.seo.canonicalOrigin;
+
   return (
     <footer className="bg-[#111827] border-t border-white/10 text-white">
       <Container className="py-16">
@@ -72,6 +74,12 @@ export function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   {SITE_CONFIG.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Globe className="size-4 text-primary" />
+                <a href={websiteUrl} className="hover:text-white transition-colors">
+                  windowsplazaupvc.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
