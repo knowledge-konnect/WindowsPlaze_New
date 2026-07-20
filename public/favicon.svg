@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Windows Plaza favicon">
-  <rect width="64" height="64" rx="14" fill="#0A5EA8"/>
-  <rect x="14" y="14" width="36" height="36" rx="5" fill="#FFFFFF"/>
-  <path d="M32 14V50M14 32H50" stroke="#0A5EA8" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Windows Plaza logo favicon">
+  <rect width="64" height="64" rx="12" fill="#0A4F8F"/>
+  <rect x="14" y="12" width="36" height="40" rx="2" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+  <line x1="32" y1="12" x2="32" y2="52" stroke="#FFFFFF" stroke-width="3"/>
+  <line x1="14" y1="32" x2="50" y2="32" stroke="#FFFFFF" stroke-width="3"/>
+  <path d="M32 16 L46 20 L46 44 L32 48 Z" fill="#D8ECFF" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="42" cy="32" r="1.6" fill="#0A4F8F"/>
 </svg>

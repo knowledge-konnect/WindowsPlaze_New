@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   tagline: "A Unit of SP Builders & Traders",
   headline: "Premium uPVC Windows & Doors",
   subheadline: "Elegant. Secure. Energy Efficient.",
-  email: "contact@windowsplazaupvc.com",
+  email: "info@windowsplazaupvc.com",
   whatsapp: {
     number: "918341166268",
     display: "+91 8341166268",
@@ -50,8 +50,7 @@ export const SITE_CONFIG = {
   ],
   social: {} as Record<string, string>,
   seo: {
-    // TODO: Replace with production canonical origin once domain is finalized.
-    canonicalOrigin: "",
+    canonicalOrigin: "https://windowsplazaupvc.com",
     geo: { latitude: 17.9052613, longitude: 83.4089324 },
     // TODO: Add verified business hours from owner.
     businessHours: null as null | Array<{ dayOfWeek: string | string[]; opens: string; closes: string }>,

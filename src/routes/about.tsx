@@ -29,24 +29,35 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: `About ${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}` },
-      {
-        name: "description",
-        content:
-          `Learn how ${SITE_CONFIG.name}, ${SITE_CONFIG.tagline.toLowerCase()}, manufactures and installs premium uPVC windows, uPVC doors and PVC doors.`,
-      },
-      { property: "og:title", content: `About ${SITE_CONFIG.name} — Premium uPVC Windows and Doors` },
-      {
-        property: "og:description",
-        content:
-          `${SITE_CONFIG.name} is the customer-facing unit backed by ${SITE_CONFIG.parentCompany}, focused on premium uPVC and PVC door and window solutions.`,
-      },
-      { property: "og:url", content: "/about" },
-    ],
-    links: [{ rel: "canonical", href: "/about" }],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/about`;
+
+    return {
+      meta: [
+        { title: `About ${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}` },
+        {
+          name: "description",
+          content:
+            `Learn how ${SITE_CONFIG.name}, ${SITE_CONFIG.tagline.toLowerCase()}, manufactures and installs premium uPVC windows, uPVC doors and PVC doors.`,
+        },
+        { property: "og:title", content: `About ${SITE_CONFIG.name} — Premium uPVC Windows and Doors` },
+        {
+          property: "og:description",
+          content:
+            `${SITE_CONFIG.name} is the customer-facing unit backed by ${SITE_CONFIG.parentCompany}, focused on premium uPVC and PVC door and window solutions.`,
+        },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: `About ${SITE_CONFIG.name}` },
+        {
+          name: "twitter:description",
+          content:
+            `${SITE_CONFIG.name} is the customer-facing unit backed by ${SITE_CONFIG.parentCompany}, focused on premium uPVC and PVC door and window solutions.`,
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+    };
+  },
   component: AboutPage,
 });
 

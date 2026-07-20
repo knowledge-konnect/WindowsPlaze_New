@@ -1,4 +1,5 @@
 import { Button, Container, Section, SectionHeading } from "@/components";
+import { sendContactEmail } from "@/lib/emailService";
 import { SITE_CONFIG, whatsAppUrl } from "@/lib/siteConfig";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute } from "@tanstack/react-router";
@@ -7,11 +8,11 @@ import {
   CheckCircle2,
   Clock,
   Factory,
+  Loader2,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
-  Send,
 } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -19,24 +20,34 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact Windows Plaza — Get a Free Quote" },
-      {
-        name: "description",
-        content:
-          "Contact WINDOWS PLAZA for premium uPVC windows, uPVC doors and PVC doors. Book a free site visit, call, WhatsApp, or visit our manufacturing facility.",
-      },
-      { property: "og:title", content: "Contact Windows Plaza" },
-      {
-        property: "og:description",
-        content:
-          `${SITE_CONFIG.tagline}. Free quote in 24 hours by call, WhatsApp, or site visit.`,
-      },
-      { property: "og:url", content: "/contact" },
-    ],
-    links: [{ rel: "canonical", href: "/contact" }],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/contact`;
+
+    return {
+      meta: [
+        { title: "Contact Windows Plaza — Get a Free Quote" },
+        {
+          name: "description",
+          content:
+            "Contact WINDOWS PLAZA for premium uPVC windows, uPVC doors and PVC doors. Submit the form to get your free quote, call us, or visit our manufacturing facility.",
+        },
+        { property: "og:title", content: "Contact Windows Plaza" },
+        {
+          property: "og:description",
+          content:
+            `${SITE_CONFIG.tagline}. Free quote in 24 hours via contact form, call, or site visit.`,
+        },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: "Contact Windows Plaza" },
+        {
+          name: "twitter:description",
+          content: `${SITE_CONFIG.tagline}. Free quote in 24 hours via contact form, call, or site visit.`,
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+    };
+  },
   component: ContactPage,
 });
 
@@ -48,30 +59,39 @@ const PRODUCTS = [
   "Not sure yet",
 ];
 
+const optionalText = (max: number, label: string) =>
+  z.preprocess(
+    (value) => {
+      if (typeof value !== "string") return undefined;
+      const trimmed = value.trim();
+      return trimmed === "" ? undefined : trimmed;
+    },
+    z.string().max(max, `${label} is too long`).optional(),
+  );
+
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   phone: z
     .string()
     .trim()
-    .min(7, "Please enter a valid phone number")
-    .max(20, "Phone number too long")
-    .regex(/^[+\d\s\-()]+$/, "Only digits, spaces and + - ( ) allowed"),
+    .min(1, "Please enter your mobile number")
+    .refine((value) => /^\d{10}$/.test(value.trim()), "Please enter a valid 10-digit mobile number"),
   email: z.string().trim().email("Please enter a valid email").max(255),
-  city: z.string().trim().min(2, "Please enter your city").max(80),
-  product: z.string().min(1, "Please choose a product"),
-  message: z.string().trim().min(5, "Please add a short message").max(1000),
+  city: optionalText(80, "City"),
+  product: optionalText(80, "Product"),
+  message: z.string().trim().min(1, "Please enter your message").max(1000),
 });
 
 type ContactValues = z.infer<typeof contactSchema>;
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState<ContactValues | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    getValues,
     reset,
   } = useForm<ContactValues>({
     resolver: zodResolver(contactSchema),
@@ -79,32 +99,32 @@ function ContactPage() {
     defaultValues: { name: "", phone: "", email: "", city: "", product: "", message: "" },
   });
 
-  const buildWhatsAppMessage = (values: Partial<ContactValues>) => {
-    return [
-      "Hi! I'd like to enquire about your products.",
-      values.name && `Name: ${values.name}`,
-      values.phone && `Phone: ${values.phone}`,
-      values.email && `Email: ${values.email}`,
-      values.city && `City: ${values.city}`,
-      values.product && `Interested in: ${values.product}`,
-      values.message && `Details: ${values.message}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-  };
+  const onSubmit = async (values: ContactValues) => {
+    setSubmitError(null);
 
-  const onSubmit = (values: ContactValues) => {
-    setSubmitted(values);
-    window.open(whatsAppUrl(buildWhatsAppMessage(values)), "_blank", "noopener");
-    reset();
+    try {
+      await sendContactEmail({
+        name: values.name,
+        phone: values.phone,
+        email: values.email,
+        city: values.city,
+        product: values.product,
+        message: values.message,
+      });
 
-    toast.success("Opening WhatsApp", {
-      description: "Your enquiry details are ready to send on WhatsApp.",
-    });
-  };
-
-  const openWhatsApp = () => {
-    window.open(whatsAppUrl(buildWhatsAppMessage(getValues())), "_blank", "noopener");
+      setSubmitted(values);
+      reset();
+      toast.success("Thank you! We've received your enquiry successfully. Our team will contact you shortly.", {
+        description: "",
+      });
+    } catch (error) {
+      console.error(error);
+      const message = "Something went wrong. Please try again or contact us via WhatsApp.";
+      setSubmitError(message);
+      toast.error("Submission failed", {
+        description: message,
+      });
+    }
   };
 
   const inputCls =
@@ -157,12 +177,27 @@ function ContactPage() {
                   <div className="inline-flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
                     <CheckCircle2 className="size-7" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">
-                    Thanks, {submitted.name.split(" ")[0]}!
-                  </h3>
+                  <h3 className="text-xl font-semibold text-foreground">Thank You!</h3>
                   <p className="mt-2 text-muted-foreground">
-                    Your enquiry has been prepared in WhatsApp. Send the message there to reach our team.
+                    We've received your enquiry successfully.
                   </p>
+                  <p className="mt-1 text-muted-foreground">Our team will contact you shortly.</p>
+                  <p className="mt-1 text-muted-foreground">Need immediate assistance?</p>
+                  <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                    <Button asChild variant="whatsapp">
+                      <a href="https://wa.me/919494918231" target="_blank" rel="noreferrer">
+                        <MessageCircle /> Chat on WhatsApp
+                      </a>
+                    </Button>
+                    <Button asChild variant="secondary">
+                      <a href="tel:+919494918231">
+                        <Phone /> Call Now
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline">
+                      <a href="/">Back to Home</a>
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <form
@@ -170,7 +205,7 @@ function ContactPage() {
                   className="grid gap-5 sm:grid-cols-2"
                   noValidate
                 >
-                  <Field label="Full name" error={errors.name?.message} htmlFor="c-name">
+                  <Field label="Name" error={errors.name?.message} htmlFor="c-name">
                     <input
                       id="c-name"
                       className={inputCls}
@@ -181,14 +216,14 @@ function ContactPage() {
                       {...register("name")}
                     />
                   </Field>
-                  <Field label="Phone" error={errors.phone?.message} htmlFor="c-phone">
+                  <Field label="Mobile Number" error={errors.phone?.message} htmlFor="c-phone">
                     <input
                       id="c-phone"
                       className={inputCls}
-                      placeholder={SITE_CONFIG.phones[1].display}
+                      placeholder="9494918231"
                       inputMode="tel"
                       autoComplete="tel"
-                      maxLength={20}
+                      maxLength={10}
                       aria-invalid={!!errors.phone}
                       {...register("phone")}
                     />
@@ -217,7 +252,7 @@ function ContactPage() {
                     />
                   </Field>
                   <Field
-                    label="Interested product"
+                    label="Product Interested"
                     error={errors.product?.message}
                     className="sm:col-span-2"
                     htmlFor="c-product"
@@ -228,7 +263,7 @@ function ContactPage() {
                       aria-invalid={!!errors.product}
                       {...register("product")}
                     >
-                      <option value="">Select a product</option>
+                      <option value="">Select a product (optional)</option>
                       {PRODUCTS.map((p) => (
                         <option key={p} value={p}>
                           {p}
@@ -251,12 +286,18 @@ function ContactPage() {
                       {...register("message")}
                     />
                   </Field>
+                  {submitError && (
+                    <div
+                      className="sm:col-span-2 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                      role="alert"
+                    >
+                      {submitError}
+                    </div>
+                  )}
                   <div className="sm:col-span-2 flex flex-wrap items-center gap-3 pt-2">
                     <Button type="submit" size="lg" disabled={isSubmitting}>
-                      <MessageCircle /> Send on WhatsApp
-                    </Button>
-                    <Button type="button" size="lg" variant="whatsapp" onClick={openWhatsApp}>
-                      <Send /> Open WhatsApp
+                      {isSubmitting ? <Loader2 className="animate-spin" /> : <MessageCircle />}
+                      {isSubmitting ? "Sending..." : "Get Free Quote"}
                     </Button>
                   </div>
                 </form>

@@ -1,39 +1,50 @@
 import { Button, Container, FAQAccordion, Section, SectionHeading } from "@/components";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export const Route = createFileRoute("/faq")({
-  head: () => ({
-    meta: [
-      { title: "Frequently Asked Questions | WINDOWS PLAZA" },
-      {
-        name: "description",
-        content:
-          "Everything you wanted to know about WINDOWS PLAZA uPVC windows, uPVC doors and PVC doors — lifespan, noise reduction, warranty, installation and more.",
-      },
-      { property: "og:title", content: "FAQ — WINDOWS PLAZA" },
-      {
-        property: "og:description",
-        content: "15 quick answers about Windows Plaza uPVC and PVC systems.",
-      },
-      { property: "og:url", content: "/faq" },
-    ],
-    links: [{ rel: "canonical", href: "/faq" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: FAQS.map((f) => ({
-            "@type": "Question",
-            name: f.question,
-            acceptedAnswer: { "@type": "Answer", text: f.answer },
-          })),
-        }),
-      },
-    ],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/faq`;
+
+    return {
+      meta: [
+        { title: "Frequently Asked Questions | WINDOWS PLAZA" },
+        {
+          name: "description",
+          content:
+            "Everything you wanted to know about WINDOWS PLAZA uPVC windows, uPVC doors and PVC doors — lifespan, noise reduction, warranty, installation and more.",
+        },
+        { property: "og:title", content: "FAQ — WINDOWS PLAZA" },
+        {
+          property: "og:description",
+          content: "15 quick answers about Windows Plaza uPVC and PVC systems.",
+        },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: "FAQ — WINDOWS PLAZA" },
+        {
+          name: "twitter:description",
+          content: "15 quick answers about Windows Plaza uPVC and PVC systems.",
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: { "@type": "Answer", text: f.answer },
+            })),
+          }),
+        },
+      ],
+    };
+  },
   component: FAQPage,
 });
 

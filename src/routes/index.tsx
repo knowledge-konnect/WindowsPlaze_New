@@ -57,23 +57,36 @@ import productUpvcDoor from "@/assets/product-upvc-door.jpg";
 import productWindow from "@/assets/product-upvc-window.jpg";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "WINDOWS PLAZA — Premium uPVC Windows, uPVC Doors & PVC Doors" },
-      {
-        name: "description",
-        content:
-          "WINDOWS PLAZA offers premium uPVC windows, uPVC doors and PVC doors for modern homes. Manufactured with precision, installed by experts, and built to last.",
-      },
-      { property: "og:title", content: "WINDOWS PLAZA — Premium uPVC Windows & PVC Doors" },
-      {
-        property: "og:description",
-        content: "Premium uPVC windows, uPVC doors and PVC doors for modern homes.",
-      },
-      { property: "og:url", content: "/" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  head: () => {
+    const pageUrl = `${SITE_CONFIG.seo.canonicalOrigin}/`;
+
+    return {
+      meta: [
+        { title: "WINDOWS PLAZA — Premium uPVC Windows, uPVC Doors & PVC Doors" },
+        {
+          name: "description",
+          content:
+            "WINDOWS PLAZA offers premium uPVC windows, uPVC doors and PVC doors for modern homes. Manufactured with precision, installed by experts, and built to last.",
+        },
+        { property: "og:title", content: "WINDOWS PLAZA — Premium uPVC Windows & PVC Doors" },
+        {
+          property: "og:description",
+          content: "Premium uPVC windows, uPVC doors and PVC doors for modern homes.",
+        },
+        { property: "og:url", content: pageUrl },
+        {
+          name: "twitter:title",
+          content: "WINDOWS PLAZA — Premium uPVC Windows, uPVC Doors & PVC Doors",
+        },
+        {
+          name: "twitter:description",
+          content: "Premium uPVC windows, uPVC doors and PVC doors for modern homes.",
+        },
+        { name: "twitter:url", content: pageUrl },
+      ],
+      links: [{ rel: "canonical", href: pageUrl }],
+    };
+  },
   component: Home,
 });
 

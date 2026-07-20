@@ -3,3 +3,6 @@ Allow: /
 
 # Block Lovable-internal preview paths
 Disallow: /lovable/
+
+Sitemap: https://windowsplazaupvc.com/sitemap.xml
+Host: windowsplazaupvc.com
